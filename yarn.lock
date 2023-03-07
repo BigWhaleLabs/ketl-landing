@@ -8127,40 +8127,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"frontend-starter@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "frontend-starter@workspace:."
-  dependencies:
-    "@preact/preset-vite": ^2.5.0
-    "@types/node": ^18.14.6
-    "@typescript-eslint/eslint-plugin": ^5.54.1
-    "@typescript-eslint/parser": ^5.54.1
-    "@vitejs/plugin-react": ^3.1.0
-    autoprefixer: ^10.4.13
-    cross-env: ^7.0.3
-    eslint: ^8.35.0
-    eslint-config-prettier: ^8.7.0
-    eslint-plugin-import: ^2.27.5
-    eslint-plugin-no-relative-import-paths: ^1.5.2
-    eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-react: ^7.32.2
-    eslint-plugin-react-hooks: ^4.6.0
-    eslint-plugin-sort-imports-es6-autofix: ^0.6.0
-    eslint-plugin-valtio: ^0.6.1
-    postcss: ^8.4.21
-    preact: ^10.13.0
-    prettier: ^2.8.4
-    react-scripts: ^5.0.1
-    rollup-plugin-visualizer: ^5.9.0
-    tailwindcss: ^3.2.7
-    tailwindcss-classnames: ^3.0.7
-    typescript: ^4.9.5
-    valtio: ^1.10.3
-    vite: ^4.1.4
-    vite-tsconfig-paths: ^4.0.5
-  languageName: unknown
-  linkType: soft
-
 "fs-extra@npm:^10.0.0":
   version: 10.0.0
   resolution: "fs-extra@npm:10.0.0"
@@ -10179,6 +10145,39 @@ __metadata:
   checksum: dcee22e6382ee5a6bd4187333a44b6420d9d079838119a07055d6e88d137dd0afadc97a2246152b0b65006bd5fc393112dc0cef01956a01a66c1713913953c66
   languageName: node
   linkType: hard
+
+"ketl-landing@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "ketl-landing@workspace:."
+  dependencies:
+    "@preact/preset-vite": ^2.5.0
+    "@types/node": ^18.14.6
+    "@typescript-eslint/eslint-plugin": ^5.54.1
+    "@typescript-eslint/parser": ^5.54.1
+    "@vitejs/plugin-react": ^3.1.0
+    autoprefixer: ^10.4.13
+    cross-env: ^7.0.3
+    eslint: ^8.35.0
+    eslint-config-prettier: ^8.7.0
+    eslint-plugin-import: ^2.27.5
+    eslint-plugin-no-relative-import-paths: ^1.5.2
+    eslint-plugin-prettier: ^4.2.1
+    eslint-plugin-react: ^7.32.2
+    eslint-plugin-react-hooks: ^4.6.0
+    eslint-plugin-sort-imports-es6-autofix: ^0.6.0
+    eslint-plugin-valtio: ^0.6.1
+    postcss: ^8.4.21
+    preact: ^10.13.0
+    prettier: ^2.8.4
+    react-scripts: ^5.0.1
+    rollup-plugin-visualizer: ^5.9.0
+    tailwindcss: ^3.2.7
+    tailwindcss-classnames: ^3.0.7
+    typescript: ^4.9.5
+    vite: ^4.1.4
+    vite-tsconfig-paths: ^4.0.5
+  languageName: unknown
+  linkType: soft
 
 "kind-of@npm:^6.0.2":
   version: 6.0.3
@@ -12644,13 +12643,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"proxy-compare@npm:2.5.0":
-  version: 2.5.0
-  resolution: "proxy-compare@npm:2.5.0"
-  checksum: 81ef2a3990a999b9c3d27f5e10b18603b9236e37d7772c5dadb5726c9ec2a30df46fe3067a216ee1d14f53783703767db9c19ff26ab2a9ffb2ea31f09c87b14f
-  languageName: node
-  linkType: hard
-
 "psl@npm:^1.1.33":
   version: 1.8.0
   resolution: "psl@npm:1.8.0"
@@ -14862,15 +14854,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"use-sync-external-store@npm:1.2.0":
-  version: 1.2.0
-  resolution: "use-sync-external-store@npm:1.2.0"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 5c639e0f8da3521d605f59ce5be9e094ca772bd44a4ce7322b055a6f58eeed8dda3c94cabd90c7a41fb6fa852210092008afe48f7038792fd47501f33299116a
-  languageName: node
-  linkType: hard
-
 "util-deprecate@npm:^1.0.1, util-deprecate@npm:^1.0.2, util-deprecate@npm:~1.0.1":
   version: 1.0.2
   resolution: "util-deprecate@npm:1.0.2"
@@ -14928,21 +14911,6 @@ __metadata:
     convert-source-map: ^1.6.0
     source-map: ^0.7.3
   checksum: c7dabf9567e0c210b24d0720e553803cbe1ff81edb1ec7f2080eb4be01ed081a40286cc9f4aaa86d1bf8d57840cefae8fdf326b7cb8faa316ba50c7b948030d4
-  languageName: node
-  linkType: hard
-
-"valtio@npm:^1.10.3":
-  version: 1.10.3
-  resolution: "valtio@npm:1.10.3"
-  dependencies:
-    proxy-compare: 2.5.0
-    use-sync-external-store: 1.2.0
-  peerDependencies:
-    react: ">=16.8"
-  peerDependenciesMeta:
-    react:
-      optional: true
-  checksum: 2e0951090a0bc9c63ecc1c4fa3bf4dea46b561a1c8e35ae7c7359908029a3b56ea202ebe485152e7c79dfa3781e84d59be5c5cf082bb005ba5b463c3309ed850
   languageName: node
   linkType: hard
 

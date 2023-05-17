@@ -11,7 +11,7 @@ export default function () {
           <Route component={MainBlock} path="/" />
           <Route
             component={({ params }) => <EmailScreen {...params} />}
-            path="/email"
+            path="/email/:domain/:token"
           />
           <Route path="">
             <Redirect to="/" />

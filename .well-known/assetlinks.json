@@ -1,0 +1,19 @@
+{
+  "expo": {
+    "android": {
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "data": [
+            {
+              "scheme": "https",
+              "host": "*.ketl.xyz",
+              "pathPrefix": "/email"
+            }
+          ],
+          "category": ["BROWSABLE", "DEFAULT"]
+        }
+      ]
+    }
+  }
+}

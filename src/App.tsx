@@ -1,10 +1,23 @@
-import MainBlock from 'components/MainBlock'
+import { Redirect, Route, Router, Switch } from 'wouter-preact'
+import EmailScreen from 'components/EmailScreen'
+import MainBlock from 'components/MainScreen'
 import Root from 'components/Root'
 
 export default function () {
   return (
-    <Root>
-      <MainBlock />
-    </Root>
+    <Router>
+      <Root>
+        <Switch>
+          <Route component={MainBlock} path="/" />
+          <Route
+            component={({ params }) => <EmailScreen {...params} />}
+            path="/email"
+          />
+          <Route path="">
+            <Redirect to="/" />
+          </Route>
+        </Switch>
+      </Root>
+    </Router>
   )
 }

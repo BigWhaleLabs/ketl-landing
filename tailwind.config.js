@@ -1,5 +1,6 @@
 /** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
 const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: ['./index.html', './src/**/!(tailwind).{ts,tsx}'],
   theme: {
@@ -12,6 +13,9 @@ module.exports = {
       fontFamily: {
         sans: ['Space Grotesk', ...defaultTheme.fontFamily.sans],
       },
+      zIndex: {
+        '-1': -1
+      }
     },
   },
 }

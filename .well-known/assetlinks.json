@@ -1,19 +1,30 @@
-{
-  "expo": {
-    "android": {
-      "intentFilters": [
-        {
-          "action": "VIEW",
-          "data": [
-            {
-              "scheme": "https",
-              "host": "*.ketl.xyz",
-              "pathPrefix": "/email"
-            }
-          ],
-          "category": ["BROWSABLE", "DEFAULT"]
-        }
+[
+  {
+    "expo": {
+      "android": {
+        "intentFilters": [
+          {
+            "action": "VIEW",
+            "autoVerify": true,
+            "data": [
+              {
+                "scheme": "https",
+                "host": "*.ketl.xyz",
+                "pathPrefix": "/email"
+              }
+            ],
+            "category": ["BROWSABLE", "DEFAULT"]
+          }
+        ]
+      }
+    },
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "xyz.ketl",
+      "sha256_cert_fingerprints": [
+        "93:BD:F5:67:9B:23:65:05:46:7C:8C:6C:33:41:7C:72:79:57:59:E4:9A:5A:77:63:60:E2:1D:F4:3F:B2:85:DF"
       ]
     }
   }
-}
+]

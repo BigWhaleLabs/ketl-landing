@@ -1,13 +1,11 @@
 {
-  "applinks": {
-    "apps": [],
-    "details": [
-      {
-        "appID": "PY6D7K9SP6.xyz.ketl",
-        "paths": [
-          "*"
-        ]
-      }
-    ]
-  }
+	"applinks": {
+		"apps": [],
+		"details": [{
+			"appID": "PY6D7K9SP6.xyz.ketl",
+			"paths": [
+				"/email"
+			]
+		}]
+	}
 }

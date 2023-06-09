@@ -2,10 +2,11 @@ import { Redirect, Route, Router, Switch } from 'wouter-preact'
 import EmailScreen from 'components/EmailScreen'
 import MainBlock from 'components/MainScreen'
 import Root from 'components/Root'
+import useHashLocation from 'hooks/useHashLocation'
 
 export default function () {
   return (
-    <Router>
+    <Router hook={useHashLocation}>
       <Root>
         <Switch>
           <Route component={MainBlock} path="/" />

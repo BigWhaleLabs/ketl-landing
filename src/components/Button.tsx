@@ -19,12 +19,19 @@ const buttonClassnames = classnames(
   transitionDuration('duration-100'),
   scale('hover:scale-125')
 )
-export default function ({ title }: { title: string }) {
+export default function ({
+  onClick,
+  title,
+}: {
+  title: string
+  onClick?: () => void
+}) {
   return (
     <button
       className={buttonClassnames}
       onClick={() => {
-        window.open('https://bit.ly/ketl-invites', '_blank')
+        if (onClick) return onClick()
+        else window.open('https://bit.ly/ketl-invites', '_blank')
       }}
     >
       {title}

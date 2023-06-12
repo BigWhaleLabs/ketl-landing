@@ -25,3 +25,13 @@ const bodyText = classnames(
 export function BodyText({ children }: ChildrenProp) {
   return <p className={bodyText}>{children}</p>
 }
+
+const captionText = classnames(
+  textColor('text-white'),
+  textAlign('text-center'),
+  fontWeight('font-bold'),
+  fontSize('text-xs', 'md:text-base')
+)
+export function CaptionText({ children }: ChildrenProp) {
+  return <p className={captionText}>{children}</p>
+}

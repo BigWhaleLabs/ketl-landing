@@ -7,8 +7,7 @@ export default function ({
   token: string
   blank?: boolean
 }) {
-  window.open(
-    `ketl://email?domain=${domain}&token=${token}`,
-    blank ? '_blank' : undefined
-  )
+  if (blank)
+    return window.open(`ketl://email?domain=${domain}&token=${token}`, '_blank')
+  return window.location.assign(`ketl://email?domain=${domain}&token=${token}`)
 }

@@ -1,3 +1,6 @@
 export default function () {
-  window.open('', '_blank')
+  window.open(
+    'https://play.google.com/store/apps/details?id=xyz.ketl',
+    '_blank'
+  )
 }

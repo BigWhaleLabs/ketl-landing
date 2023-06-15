@@ -1,3 +1,3 @@
 export default function () {
-  window.open('', '_blank')
+  window.open('https://testflight.apple.com/join/YX6vybtd', '_blank')
 }

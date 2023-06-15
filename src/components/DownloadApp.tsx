@@ -1,7 +1,7 @@
+import { HeaderText } from 'components/Text'
 import { isAndroid, isIos } from 'helpers/isMobileDevice'
 import { useEffect } from 'preact/hooks'
-import GetItOnAppStore from 'components/icons/GetItOnAppStore'
-import GetItOnPlayStore from 'components/icons/GetItOnPlayStore'
+import Button from 'components/Button'
 import classnames, {
   alignItems,
   cursor,
@@ -28,7 +28,6 @@ const wrapper = classnames(
 )
 
 const storeIcon = classnames(
-  width('w-full', 'sm:w-1/3'),
   cursor('cursor-pointer'),
   textColor('hover:text-gray-200'),
   transitionProperty('transition-colors'),
@@ -43,12 +42,9 @@ export default function () {
 
   return (
     <div className={wrapper}>
-      <div className={storeIcon} onClick={openKetlPlayStore}>
-        <GetItOnPlayStore />
-      </div>
-      <div className={storeIcon} onClick={openKetlAppStore}>
-        <GetItOnAppStore />
-      </div>
+      <HeaderText>Join to get started</HeaderText>
+      <Button title="Download through Testflight" onClick={openKetlAppStore} />
+      <Button title="Join us on discord" onClick={openKetlPlayStore} />
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import { Redirect, Route, Router, Switch } from 'wouter-preact'
+import DownloadApp from 'components/DownloadApp'
 import EmailScreen from 'components/EmailScreen'
 import MainBlock from 'components/MainScreen'
 import Root from 'components/Root'
@@ -14,6 +15,7 @@ export default function () {
             component={({ params }) => <EmailScreen {...params} />}
             path="/email/:domain/:token"
           />
+          <Route component={DownloadApp} path="/app" />
           <Route path="">
             <Redirect to="/" />
           </Route>

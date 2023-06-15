@@ -14,8 +14,8 @@ module.exports = {
         sans: ['Space Grotesk', ...defaultTheme.fontFamily.sans],
       },
       zIndex: {
-        '-1': -1
-      }
+        '-1': -1,
+      },
     },
   },
 }

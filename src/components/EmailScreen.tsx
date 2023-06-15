@@ -1,4 +1,5 @@
 import { BodyText, CaptionText } from 'components/Text'
+import { isMobileDevice } from 'helpers/isMobileDevice'
 import Button from 'components/Button'
 import EmailScreenParams from 'models/EmailScreenParams'
 import classnames, {
@@ -9,7 +10,6 @@ import classnames, {
   gap,
   justifyContent,
 } from 'classnames/tailwind'
-import isMobileDevice from 'helpers/isMobileDevice'
 import openAppEmailLink from 'helpers/openAppEmailLink'
 
 const wrapper = classnames(

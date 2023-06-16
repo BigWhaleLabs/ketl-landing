@@ -73,7 +73,7 @@ export default function EmailScreen({ domain, token }: EmailScreenParams) {
   if (domain && token && isMobileDevice) openAppEmailLink({ domain, token })
 
   return (
-    <div>
+    <>
       <video
         autoPlay
         loop
@@ -86,6 +86,6 @@ export default function EmailScreen({ domain, token }: EmailScreenParams) {
         <AnonFace />
         {isMobileDevice && <OpenKetlBlock domain={domain} token={token} />}
       </div>
-    </div>
+    </>
   )
 }

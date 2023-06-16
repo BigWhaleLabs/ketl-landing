@@ -5,6 +5,7 @@ import { useEffect } from 'preact/hooks'
 import BeforeWeHitAppStore from 'icons/BeforeWeHitAppStore'
 import Button from 'components/Button'
 import DiscordIcon from 'icons/Discord'
+import Header from 'components/Header'
 import TestFlightIcon from 'icons/TestFlight'
 import classnames, {
   alignItems,
@@ -14,6 +15,7 @@ import classnames, {
   inset,
   justifyContent,
   margin,
+  padding,
   position,
   width,
 } from 'classnames/tailwind'
@@ -28,7 +30,7 @@ const wrapper = classnames(
   gap('gap-4'),
   margin('mt-16')
 )
-const screenWrapper = classnames(wrapper, width('w-full'))
+const screenWrapper = classnames(wrapper, width('w-full'), padding('px-4'))
 const floatingText = classnames(
   position('absolute'),
   inset('left-1/2'),
@@ -42,29 +44,32 @@ export default function () {
   }, [])
 
   return (
-    <div className={screenWrapper}>
-      <HeaderText color="text-blue-default">How to get</HeaderText>
-      <HeaderText color="text-blue-default">started</HeaderText>
-      <div className={floatingText}>
-        <BeforeWeHitAppStore />
+    <>
+      <Header />
+      <div className={screenWrapper}>
+        <HeaderText color="text-blue-default">How to get</HeaderText>
+        <HeaderText color="text-blue-default">started</HeaderText>
+        <div className={floatingText}>
+          <BeforeWeHitAppStore />
+        </div>
+        <div className={wrapper}>
+          <Button
+            bold
+            fontSized="text-lg"
+            leftIcon={TestFlightIcon()}
+            title="Download through TestFlight"
+            onClick={() => openBlankTab(testFlightLink)}
+          />
+          <Button
+            bold
+            fullWidth
+            fontSized="text-lg"
+            leftIcon={DiscordIcon()}
+            title="Join us on discord"
+            onClick={() => openBlankTab(discordLink)}
+          />
+        </div>
       </div>
-      <div className={wrapper}>
-        <Button
-          bold
-          fontSized="text-lg"
-          leftIcon={TestFlightIcon()}
-          title="Download through TestFlight"
-          onClick={() => openBlankTab(testFlightLink)}
-        />
-        <Button
-          bold
-          fullWidth
-          fontSized="text-lg"
-          leftIcon={DiscordIcon()}
-          title="Join us on discord"
-          onClick={() => openBlankTab(discordLink)}
-        />
-      </div>
-    </div>
+    </>
   )
 }

@@ -8,6 +8,7 @@ import classnames, {
   gap,
   justifyContent,
   margin,
+  padding,
   zIndex,
 } from 'classnames/tailwind'
 
@@ -18,7 +19,8 @@ const container = classnames(
   flexDirection('flex-col'),
   justifyContent('justify-center'),
   alignItems('items-center'),
-  zIndex('z-20')
+  zIndex('z-20'),
+  padding('px-4')
 )
 const text = classnames(
   display('flex'),

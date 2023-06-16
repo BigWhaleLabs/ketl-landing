@@ -1,4 +1,5 @@
 import {
+  TTextColor,
   classnames,
   fontSize,
   fontWeight,
@@ -7,13 +8,18 @@ import {
 } from 'classnames/tailwind'
 import ChildrenProp from 'models/ChildrenProp'
 
-const headerText = classnames(
-  fontSize('text-3xl', 'md:text-6xl'),
-  fontWeight('font-bold'),
-  textAlign('text-center')
-)
-export function HeaderText({ children }: ChildrenProp) {
-  return <p className={headerText}>{children}</p>
+const headerText = (color?: TTextColor) =>
+  classnames(
+    fontSize('text-6xl'),
+    fontWeight('font-bold'),
+    textAlign('text-center'),
+    textColor(color)
+  )
+export function HeaderText({
+  children,
+  color,
+}: ChildrenProp & { color?: TTextColor }) {
+  return <p className={headerText(color)}>{children}</p>
 }
 
 const bodyText = classnames(

@@ -5,33 +5,16 @@ import Button from 'components/Button'
 import EmailScreenParams from 'models/EmailScreenParams'
 import classnames, {
   alignItems,
-  blur,
   display,
   flex,
   flexDirection,
   gap,
-  height,
-  inset,
   justifyContent,
-  objectFit,
-  overflow,
   padding,
-  position,
-  width,
   zIndex,
 } from 'classnames/tailwind'
 import openAppEmailLink from 'helpers/openAppEmailLink'
 
-const videoContainer = classnames(
-  position('absolute'),
-  inset('inset-0'),
-  blur('blur-xl'),
-  height('h-full'),
-  width('w-full'),
-  overflow('overflow-hidden'),
-  objectFit('object-cover'),
-  zIndex('-z-1')
-)
 const wrapper = classnames(
   display('flex'),
   flex('flex-1'),
@@ -71,19 +54,9 @@ export default function EmailScreen({ domain, token }: EmailScreenParams) {
   if (domain && token && isMobileDevice) openAppEmailLink({ domain, token })
 
   return (
-    <>
-      <video
-        autoPlay
-        loop
-        muted
-        className={videoContainer}
-        src="media/cover.mp4"
-        type="video/mp4"
-      />
-      <div className={wrapper}>
-        <AnonFace />
-        {isMobileDevice && <OpenKetlBlock domain={domain} token={token} />}
-      </div>
-    </>
+    <div className={wrapper}>
+      <AnonFace />
+      {isMobileDevice && <OpenKetlBlock domain={domain} token={token} />}
+    </div>
   )
 }

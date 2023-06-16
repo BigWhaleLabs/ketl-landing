@@ -9,6 +9,7 @@ import {
   position,
   zIndex,
 } from 'classnames/tailwind'
+import BackgroundVideo from 'components/BackgroundVideo'
 import ChildrenProp from 'models/ChildrenProp'
 
 const root = classnames(
@@ -24,5 +25,10 @@ const root = classnames(
 )
 
 export default function ({ children }: ChildrenProp) {
-  return <div className={root}>{children}</div>
+  return (
+    <div className={root}>
+      <BackgroundVideo />
+      {children}
+    </div>
+  )
 }

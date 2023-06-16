@@ -27,10 +27,10 @@ export function BodyText({ children }: ChildrenProp) {
 }
 
 const captionText = classnames(
-  textColor('text-white'),
+  textColor('text-blue-light'),
   textAlign('text-center'),
   fontWeight('font-bold'),
-  fontSize('text-xs', 'md:text-base')
+  fontSize('text-xl')
 )
 export function CaptionText({ children }: ChildrenProp) {
   return <p className={captionText}>{children}</p>

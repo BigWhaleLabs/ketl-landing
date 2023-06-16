@@ -1,20 +1,20 @@
 import classnames, {
-  boxShadow,
-  boxShadowColor,
+  dropShadow,
   stroke,
   strokeWidth,
 } from 'classnames/tailwind'
 
+const svgStyle = classnames(dropShadow('drop-shadow-blue-light'))
+
 const pathStyle = classnames(
   strokeWidth('stroke-2'),
-  boxShadow('shadow-lg'),
-  boxShadowColor('shadow-blue-light'),
   stroke('stroke-blue-light')
 )
 
 export default function () {
   return (
     <svg
+      className={svgStyle}
       fill="none"
       height="84"
       viewBox="0 0 84 84"

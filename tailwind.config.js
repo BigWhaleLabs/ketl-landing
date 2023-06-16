@@ -6,13 +6,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'blue-start': '#3A00D6',
-        'blue-end': '#8355FF',
-        'blue-default': '#1A0259',
-        'blue-light': '#BFF5FA',
+        'blue-start': 'var(--blue-start)',
+        'blue-end': 'var(--blue-end)',
+        'blue-default': 'var(--blue-default)',
+        'blue-light': 'var(--blue-light)',
       },
       fontFamily: {
         sans: ['Space Grotesk', ...defaultTheme.fontFamily.sans],
+      },
+      dropShadow: {
+        'blue-light': '0rem 0.188rem 2.75rem var(--blue-light)',
       },
       zIndex: {
         '-1': -1,

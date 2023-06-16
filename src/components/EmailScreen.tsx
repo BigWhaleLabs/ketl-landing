@@ -52,35 +52,40 @@ const caption = classnames(
   gap('gap-y-8')
 )
 
+function OpenKetlBlock({ domain, token }: EmailScreenParams) {
+  if (!domain || !token) return null
+
+  return (
+    <div className={caption}>
+      <CaptionText>
+        If ketl doesn’t open automatically, click the button below.
+      </CaptionText>
+      <Button
+        small={false}
+        title="Open Ketl"
+        onClick={() => openAppEmailLink({ blank: true, domain, token })}
+      />
+    </div>
+  )
+}
+
 export default function EmailScreen({ domain, token }: EmailScreenParams) {
   if (domain && token && isMobileDevice) openAppEmailLink({ domain, token })
 
   return (
-    <>
+    <div>
       <video
         autoPlay
         loop
         muted
         className={videoContainer}
-        src="/media/cover.mp4"
+        src="media/cover.mp4"
         type="video/mp4"
       />
-
       <div className={wrapper}>
         <AnonFace />
-        {domain && token && isMobileDevice && (
-          <div className={caption}>
-            <CaptionText>
-              If ketl doesn’t open automatically, click the button below.
-            </CaptionText>
-            <Button
-              small={false}
-              title="Open Ketl"
-              onClick={() => openAppEmailLink({ blank: true, domain, token })}
-            />
-          </div>
-        )}
+        {isMobileDevice && <OpenKetlBlock domain={domain} token={token} />}
       </div>
-    </>
+    </div>
   )
 }

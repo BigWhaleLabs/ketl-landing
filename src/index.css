@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --blue-start: #3a00d6;
+  --blue-end: #8355ff;
+  --blue-default: #1a0259;
+  --blue-light: #bff5fa;
+}
+
 * {
   -webkit-tap-highlight-color: var(--transparent);
 }
@@ -10,6 +17,12 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(140, 41, 241);
+  background: linear-gradient(
+    90deg,
+    rgba(140, 41, 241, 1) 0%,
+    rgba(131, 85, 255, 1) 100%
+  );
 }
 
 ::selection {

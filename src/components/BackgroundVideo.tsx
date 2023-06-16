@@ -29,7 +29,7 @@ export default function () {
       loop
       muted
       className={videoContainer}
-      src="media/cover.mp4"
+      src="/media/cover.mp4"
       type="video/mp4"
     />
   )

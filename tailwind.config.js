@@ -15,7 +15,7 @@ module.exports = {
         sans: ['Space Grotesk', ...defaultTheme.fontFamily.sans],
       },
       screens: {
-        fold: '280px',
+        fold: '281px',
       },
       dropShadow: {
         'blue-light': '0rem 0.188rem 2.75rem var(--blue-light)',

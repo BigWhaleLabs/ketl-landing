@@ -19,6 +19,7 @@ import classnames, {
   objectFit,
   opacity,
   overflow,
+  padding,
   position,
   zIndex,
 } from 'classnames/tailwind'
@@ -51,6 +52,7 @@ const wrapper = classnames(
   justifyContent('justify-center'),
   alignItems('items-center'),
   gap('gap-y-6'),
+  padding('px-4'),
   zIndex('z-20')
 )
 const caption = classnames(

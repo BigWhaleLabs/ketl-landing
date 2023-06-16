@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+  --accent: #8c29f1;
   --blue-start: #3a00d6;
   --blue-end: #8355ff;
   --blue-default: #1a0259;
@@ -17,12 +18,8 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: rgb(140, 41, 241);
-  background: linear-gradient(
-    90deg,
-    rgba(140, 41, 241, 1) 0%,
-    rgba(131, 85, 255, 1) 100%
-  );
+  background: var(--accent);
+  background: linear-gradient(90deg, var(--accent) 35%, var(--blue-end) 100%);
 }
 
 ::selection {

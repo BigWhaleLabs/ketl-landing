@@ -4,7 +4,7 @@ import classnames, {
   strokeWidth,
 } from 'classnames/tailwind'
 
-const svgStyle = classnames(dropShadow('drop-shadow-blue-light'))
+const svgStyle = dropShadow('drop-shadow-blue-light')
 
 const pathStyle = classnames(
   strokeWidth('stroke-2'),

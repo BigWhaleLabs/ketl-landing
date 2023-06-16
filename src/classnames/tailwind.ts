@@ -6922,6 +6922,7 @@ export type TMaxWidth =
   | 'max-w-screen-lg'
   | 'max-w-screen-xl'
   | 'max-w-screen-2xl'
+  | 'max-w-screen-fold'
 
 export type THeight =
   | 'h-0'
@@ -8251,6 +8252,7 @@ export type TPseudoClassVariants =
   | 'lg:'
   | 'xl:'
   | '2xl:'
+  | 'fold:'
 
 //////////// Utility Function generic type
 

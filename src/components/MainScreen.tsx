@@ -2,13 +2,11 @@ import { BodyText } from 'components/Text'
 import Button from 'components/Button'
 import classnames, {
   alignItems,
-  backgroundImage,
   blur,
   display,
   flex,
   flexDirection,
   gap,
-  gradientColorStops,
   inset,
   justifyContent,
   margin,
@@ -16,7 +14,6 @@ import classnames, {
   minHeight,
   minWidth,
   objectFit,
-  opacity,
   overflow,
   position,
   zIndex,
@@ -50,14 +47,6 @@ const videoContainer = classnames(
   objectFit('object-cover'),
   zIndex('-z-1')
 )
-const blueOverlay = classnames(
-  position('absolute'),
-  inset('inset-0'),
-  backgroundImage('bg-gradient-to-b'),
-  gradientColorStops('from-blue-start', 'to-blue-end'),
-  zIndex('z-10'),
-  opacity('opacity-70')
-)
 
 export default function () {
   return (
@@ -67,12 +56,9 @@ export default function () {
         loop
         muted
         className={videoContainer}
-        src="/media/background.mp4"
+        src="/media/cover.mp4"
         type="video/mp4"
       />
-      <div className={blueOverlay}>
-        <div className="absolute inset-0 noise" />
-      </div>
 
       <div className={container}>
         <img alt="ketl" className={logo} src="/media/logo.svg" />

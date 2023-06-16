@@ -4,20 +4,17 @@ import Button from 'components/Button'
 import EmailScreenParams from 'models/EmailScreenParams'
 import classnames, {
   alignItems,
-  backgroundImage,
   blur,
   display,
   flex,
   flexDirection,
   gap,
-  gradientColorStops,
   inset,
   justifyContent,
   maxHeight,
   minHeight,
   minWidth,
   objectFit,
-  opacity,
   overflow,
   padding,
   position,
@@ -36,14 +33,6 @@ const videoContainer = classnames(
   overflow('overflow-hidden'),
   objectFit('object-cover'),
   zIndex('-z-1')
-)
-const blueOverlay = classnames(
-  position('absolute'),
-  inset('inset-0'),
-  backgroundImage('bg-gradient-to-b'),
-  gradientColorStops('from-blue-start', 'to-blue-end'),
-  zIndex('z-10'),
-  opacity('opacity-70')
 )
 const wrapper = classnames(
   display('flex'),
@@ -73,12 +62,9 @@ export default function EmailScreen({ domain, token }: EmailScreenParams) {
         loop
         muted
         className={videoContainer}
-        src="/media/background.mp4"
+        src="/media/cover.mp4"
         type="video/mp4"
       />
-      <div className={blueOverlay}>
-        <div className="absolute inset-0 noise" />
-      </div>
 
       <div className={wrapper}>
         <AnonFace />

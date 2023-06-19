@@ -1,5 +1,6 @@
 import { CaptionText } from 'components/Text'
 import { isMobileDevice } from 'helpers/isMobileDevice'
+import { useLocation } from 'wouter-preact'
 import AnonFace from 'icons/AnonFace'
 import Button from 'components/Button'
 import EmailScreenParams from 'models/EmailScreenParams'
@@ -34,17 +35,24 @@ const caption = classnames(
 )
 
 function OpenKetlBlock({ domain, token }: EmailScreenParams) {
+  const [, navigate] = useLocation()
   if (!domain || !token) return null
+  const buttonText = `${isMobileDevice ? 'Open' : 'Get'} Ketl`
+  const captionText = isMobileDevice
+    ? 'If Ketl doesn’t open automatically, click the button below.'
+    : 'Ketl is available only on mobile devices. Get it by button below.'
 
   return (
     <div className={caption}>
-      <CaptionText>
-        If ketl doesn’t open automatically, click the button below.
-      </CaptionText>
+      <CaptionText>{captionText}</CaptionText>
       <Button
         small={false}
-        title="Open Ketl"
-        onClick={() => openAppEmailLink({ blank: true, domain, token })}
+        title={buttonText}
+        onClick={() =>
+          isMobileDevice
+            ? openAppEmailLink({ blank: true, domain, token })
+            : navigate('/app')
+        }
       />
     </div>
   )
@@ -56,7 +64,7 @@ export default function EmailScreen({ domain, token }: EmailScreenParams) {
   return (
     <div className={wrapper}>
       <AnonFace />
-      {isMobileDevice && <OpenKetlBlock domain={domain} token={token} />}
+      <OpenKetlBlock domain={domain} token={token} />
     </div>
   )
 }

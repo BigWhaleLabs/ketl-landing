@@ -10,7 +10,7 @@
               {
                 "scheme": "https",
                 "host": "*.ketl.xyz",
-                "pathPrefix": "/email"
+                "pathPrefix": "/"
               }
             ],
             "category": ["BROWSABLE", "DEFAULT"]

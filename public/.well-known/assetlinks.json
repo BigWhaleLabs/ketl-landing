@@ -9,7 +9,7 @@
             "data": [
               {
                 "scheme": "https",
-                "host": "*.ketl.xyz",
+                "host": "ketl.xyz",
                 "pathPrefix": "/"
               }
             ],

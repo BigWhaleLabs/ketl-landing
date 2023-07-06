@@ -6,17 +6,14 @@ import classnames, {
   height,
   justifyContent,
   padding,
-  position,
   width,
 } from 'classnames/tailwind'
 
 const wrapper = classnames(
-  width('w-screen'),
-  position('fixed'),
   display('flex'),
   justifyContent('justify-center', 'md:justify-start'),
   alignItems('items-center'),
-  padding('p-12'),
+  padding('py-12', 'px-18'),
   height('h-12')
 )
 const logo = classnames(width('w-40'), cursor('cursor-pointer'))

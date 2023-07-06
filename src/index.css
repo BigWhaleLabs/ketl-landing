@@ -8,6 +8,8 @@
   --blue-end: #8355ff;
   --blue-default: #1a0259;
   --blue-light: #bff5fa;
+  --alternative: #01feb6;
+  --formal: #eff0f4;
 }
 
 * {
@@ -20,6 +22,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: var(--accent);
   background: linear-gradient(90deg, var(--accent) 35%, var(--blue-end) 100%);
+}
+
+svg {
+  fill: none;
+}
+path,
+circle {
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 ::selection {

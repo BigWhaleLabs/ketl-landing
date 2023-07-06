@@ -1,10 +1,11 @@
-import { HeaderText } from 'components/Text'
+import { BasicText, HeaderText } from 'components/Text'
 import { discordLink, ketlTwitterLink, testFlightLink } from 'helpers/data'
 import { isAndroid, isIos } from 'helpers/isMobileDevice'
 import { useEffect } from 'preact/hooks'
 import BeforeWeHitAppStore from 'icons/BeforeWeHitAppStore'
 import Button from 'components/Button'
 import DiscordIcon from 'icons/Discord'
+import Footer from 'components/Footer'
 import Header from 'components/Header'
 import TestFlightIcon from 'icons/TestFlight'
 import TwitterIcon from 'icons/Twitter'
@@ -32,51 +33,46 @@ const wrapper = classnames(
 )
 const screenWrapper = classnames(wrapper, width('w-full'), padding('px-4'))
 const floatingText = classnames(
-  margin('ml-96', 'mt-2'),
+  margin('ml-128', 'mt-2'),
   display('hidden', 'xl:block')
 )
 
 export default function () {
-  useEffect(() => {
-    if (isAndroid) openBlankTab(discordLink)
-    if (isIos) openBlankTab(testFlightLink)
-  }, [])
+  // useEffect(() => {
+  //   if (isAndroid) openBlankTab(discordLink)
+  //   if (isIos) openBlankTab(testFlightLink)
+  // }, [])
 
   return (
-    <>
-      <Header />
-      <div className={screenWrapper}>
-        <HeaderText color="text-blue-default">How to get</HeaderText>
-        <HeaderText color="text-blue-default">started</HeaderText>
-        <div className={floatingText}>
-          <BeforeWeHitAppStore />
-        </div>
-        <div className={wrapper}>
-          <Button
-            bold
-            fontSized="text-lg"
-            leftIcon={TestFlightIcon()}
-            title="Download through TestFlight"
-            onClick={() => openBlankTab(testFlightLink)}
-          />
-          <Button
-            bold
-            fullWidth
-            fontSized="text-lg"
-            leftIcon={DiscordIcon()}
-            title="Join us on discord"
-            onClick={() => openBlankTab(discordLink)}
-          />
-          <Button
-            bold
-            fullWidth
-            fontSized="text-lg"
-            leftIcon={TwitterIcon()}
-            title="Follow on twitter"
-            onClick={() => openBlankTab(ketlTwitterLink)}
-          />
-        </div>
+    <div className={screenWrapper}>
+      <HeaderText color="text-blue-default">How to get</HeaderText>
+      <HeaderText color="text-blue-default">started</HeaderText>
+      <div className={floatingText}>
+        <BeforeWeHitAppStore />
       </div>
-    </>
+      <div className={wrapper}>
+        <BasicText bold small>
+          For iOS users:
+        </BasicText>
+        <Button
+          bold
+          fontSized="text-lg"
+          leftIcon={TestFlightIcon()}
+          title="Download through TestFlight"
+          onClick={() => openBlankTab(testFlightLink)}
+        />
+        <BasicText bold small>
+          For Android users:
+        </BasicText>
+        <Button
+          bold
+          fullWidth
+          fontSized="text-lg"
+          leftIcon={DiscordIcon()}
+          title="Get access on discord"
+          onClick={() => openBlankTab(discordLink)}
+        />
+      </div>
+    </div>
   )
 }

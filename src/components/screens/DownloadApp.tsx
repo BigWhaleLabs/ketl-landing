@@ -1,5 +1,5 @@
 import { HeaderText } from 'components/Text'
-import { discordLink, testFlightLink } from 'helpers/data'
+import { discordLink, ketlTwitterLink, testFlightLink } from 'helpers/data'
 import { isAndroid, isIos } from 'helpers/isMobileDevice'
 import { useEffect } from 'preact/hooks'
 import BeforeWeHitAppStore from 'icons/BeforeWeHitAppStore'
@@ -7,12 +7,12 @@ import Button from 'components/Button'
 import DiscordIcon from 'icons/Discord'
 import Header from 'components/Header'
 import TestFlightIcon from 'icons/TestFlight'
+import TwitterIcon from 'icons/Twitter'
 import classnames, {
   alignItems,
   display,
   flexDirection,
   gap,
-  inset,
   justifyContent,
   margin,
   padding,
@@ -28,12 +28,11 @@ const wrapper = classnames(
   alignItems('items-center'),
   justifyContent('justify-center'),
   gap('gap-4'),
-  margin('mt-16')
+  margin('mt-4')
 )
 const screenWrapper = classnames(wrapper, width('w-full'), padding('px-4'))
 const floatingText = classnames(
-  position('absolute'),
-  inset('left-1/2'),
+  margin('ml-96', 'mt-2'),
   display('hidden', 'xl:block')
 )
 
@@ -67,6 +66,14 @@ export default function () {
             leftIcon={DiscordIcon()}
             title="Join us on discord"
             onClick={() => openBlankTab(discordLink)}
+          />
+          <Button
+            bold
+            fullWidth
+            fontSized="text-lg"
+            leftIcon={TwitterIcon()}
+            title="Follow on twitter"
+            onClick={() => openBlankTab(ketlTwitterLink)}
           />
         </div>
       </div>

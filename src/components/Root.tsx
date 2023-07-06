@@ -1,6 +1,8 @@
 import {
   classnames,
   display,
+  flexDirection,
+  justifyContent,
   minHeight,
   minWidth,
   position,
@@ -8,9 +10,13 @@ import {
 } from 'classnames/tailwind'
 import BackgroundVideo from 'components/BackgroundVideo'
 import ChildrenProp from 'models/ChildrenProp'
+import Footer from 'components/Footer'
+import Header from 'components/Header'
 
 const root = classnames(
   display('flex'),
+  flexDirection('flex-col'),
+  justifyContent('justify-between'),
   minWidth('min-w-full'),
   minHeight('min-h-screen'),
   position('relative'),
@@ -21,7 +27,9 @@ export default function ({ children }: ChildrenProp) {
   return (
     <div className={root}>
       <BackgroundVideo />
+      <Header />
       {children}
+      <Footer />
     </div>
   )
 }

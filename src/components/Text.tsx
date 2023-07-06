@@ -32,6 +32,24 @@ export function BodyText({ children }: ChildrenProp) {
   return <p className={bodyText}>{children}</p>
 }
 
+interface BasicTextProps {
+  bold?: boolean
+  small?: boolean
+}
+export const basicTextStyles = ({ bold, small }: BasicTextProps) =>
+  classnames(
+    textColor('text-formal'),
+    fontSize({ 'text-xs': small }),
+    fontWeight({ 'font-bold': bold })
+  )
+export function BasicText({
+  bold,
+  children,
+  small,
+}: ChildrenProp & BasicTextProps) {
+  return <p className={basicTextStyles({ bold, small })}>{children}</p>
+}
+
 const captionText = classnames(
   textColor('text-blue-light'),
   textAlign('text-center'),

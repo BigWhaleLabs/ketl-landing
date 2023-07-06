@@ -23,6 +23,7 @@ module.exports = {
       },
       screens: {
         fold: '281px',
+        xs: '341px',
       },
       dropShadow: {
         'blue-light': '0rem 0.188rem 2.75rem var(--blue-light)',

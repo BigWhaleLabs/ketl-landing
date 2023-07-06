@@ -36,7 +36,7 @@ interface BasicTextProps {
   bold?: boolean
   small?: boolean
 }
-const basicText = ({ bold, small }: BasicTextProps) =>
+export const basicTextStyles = ({ bold, small }: BasicTextProps) =>
   classnames(
     textColor('text-formal'),
     fontSize({ 'text-xs': small }),
@@ -47,7 +47,7 @@ export function BasicText({
   children,
   small,
 }: ChildrenProp & BasicTextProps) {
-  return <p className={basicText({ bold, small })}>{children}</p>
+  return <p className={basicTextStyles({ bold, small })}>{children}</p>
 }
 
 const captionText = classnames(

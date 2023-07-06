@@ -24,6 +24,15 @@ body {
   background: linear-gradient(90deg, var(--accent) 35%, var(--blue-end) 100%);
 }
 
+a:hover {
+  color: var(--alternative);
+}
+
+a {
+  transition-property: color;
+  transition-duration: 300ms;
+}
+
 svg {
   fill: none;
 }

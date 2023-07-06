@@ -9,8 +9,6 @@ import classnames, {
   height,
   justifyContent,
   margin,
-  textColor,
-  transitionProperty,
 } from 'classnames/tailwind'
 
 const wrapper = classnames(
@@ -23,24 +21,20 @@ const wrapper = classnames(
   height('h-12'),
   basicTextStyles({})
 )
-const link = classnames(
-  textColor('hover:text-alternative'),
-  transitionProperty('transition-colors')
-)
 const displayOnXs = display('hidden', 'xs:block')
 
 export default function () {
   return (
     <div className={wrapper}>
-      <a className={link} href={ketlTwitterLink} target="_blank">
+      <a href={ketlTwitterLink} target="_blank">
         <Twitter />
       </a>
       <div className={displayOnXs}>·</div>
-      <a className={link} href={`${sealCredLink}/privacy`} target="_blank">
+      <a href={`${sealCredLink}/privacy`} target="_blank">
         Privacy policy
       </a>
       <div className={displayOnXs}>·</div>
-      <a className={link} href={`${sealCredLink}/terms`} target="_blank">
+      <a href={`${sealCredLink}/terms`} target="_blank">
         Terms of service
       </a>
     </div>

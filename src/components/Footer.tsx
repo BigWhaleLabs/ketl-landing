@@ -18,7 +18,7 @@ const wrapper = classnames(
   flexDirection('flex-col', 'xs:flex-row'),
   justifyContent('justify-center', 'md:justify-end'),
   alignItems('items-center'),
-  gap('gap-x-3'),
+  gap('gap-3'),
   margin('my-8', 'mx-0', 'md:mx-18'),
   height('h-12'),
   basicTextStyles({})
@@ -27,6 +27,7 @@ const link = classnames(
   textColor('hover:text-alternative'),
   transitionProperty('transition-colors')
 )
+const displayOnXs = display('hidden', 'xs:block')
 
 export default function () {
   return (
@@ -34,11 +35,11 @@ export default function () {
       <a className={link} href={ketlTwitterLink} target="_blank">
         <Twitter />
       </a>
-      ·
+      <div className={displayOnXs}>·</div>
       <a className={link} href={`${sealCredLink}/privacy`} target="_blank">
         Privacy policy
       </a>
-      ·
+      <div className={displayOnXs}>·</div>
       <a className={link} href={`${sealCredLink}/terms`} target="_blank">
         Terms of service
       </a>

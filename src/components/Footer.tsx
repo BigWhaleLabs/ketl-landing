@@ -1,6 +1,5 @@
-import { Link } from 'wouter-preact'
 import { basicTextStyles } from 'components/Text'
-import { ketlTwitterLink } from 'helpers/data'
+import { ketlTwitterLink, sealCredLink } from 'helpers/data'
 import Twitter from 'icons/Twitter'
 import classnames, {
   alignItems,
@@ -36,13 +35,13 @@ export default function () {
         <Twitter />
       </a>
       ·
-      <Link className={link} href="/privacy">
+      <a className={link} href={`${sealCredLink}/privacy`} target="_blank">
         Privacy policy
-      </Link>
+      </a>
       ·
-      <Link className={link} href="/terms">
+      <a className={link} href={`${sealCredLink}/terms`} target="_blank">
         Terms of service
-      </Link>
+      </a>
     </div>
   )
 }

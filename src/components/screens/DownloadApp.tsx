@@ -1,14 +1,11 @@
 import { BasicText, HeaderText } from 'components/Text'
-import { discordLink, ketlTwitterLink, testFlightLink } from 'helpers/data'
+import { discordLink, testFlightLink } from 'helpers/data'
 import { isAndroid, isIos } from 'helpers/isMobileDevice'
 import { useEffect } from 'preact/hooks'
 import BeforeWeHitAppStore from 'icons/BeforeWeHitAppStore'
 import Button from 'components/Button'
 import DiscordIcon from 'icons/Discord'
-import Footer from 'components/Footer'
-import Header from 'components/Header'
 import TestFlightIcon from 'icons/TestFlight'
-import TwitterIcon from 'icons/Twitter'
 import classnames, {
   alignItems,
   display,
@@ -38,10 +35,10 @@ const floatingText = classnames(
 )
 
 export default function () {
-  // useEffect(() => {
-  //   if (isAndroid) openBlankTab(discordLink)
-  //   if (isIos) openBlankTab(testFlightLink)
-  // }, [])
+  useEffect(() => {
+    if (isAndroid) openBlankTab(discordLink)
+    if (isIos) openBlankTab(testFlightLink)
+  }, [])
 
   return (
     <div className={screenWrapper}>

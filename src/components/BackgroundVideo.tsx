@@ -26,8 +26,10 @@ export default function () {
   return (
     <video
       autoPlay
+      disablePictureInPicture
       loop
       muted
+      playsInline
       className={videoContainer}
       src="/media/cover.mp4"
       type="video/mp4"

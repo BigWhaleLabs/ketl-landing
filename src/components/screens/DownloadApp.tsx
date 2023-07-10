@@ -42,8 +42,8 @@ export default function () {
 
   return (
     <div className={screenWrapper}>
-      <HeaderText color="text-blue-default">How to get</HeaderText>
-      <HeaderText color="text-blue-default">started</HeaderText>
+      <HeaderText color="text-blue-light">How to get</HeaderText>
+      <HeaderText color="text-blue-light">started</HeaderText>
       <div className={floatingText}>
         <BeforeWeHitAppStore />
       </div>

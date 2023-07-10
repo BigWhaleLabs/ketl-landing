@@ -1,4 +1,5 @@
-import { Link, useLocation } from 'wouter-preact'
+import { useLocation } from 'wouter-preact'
+import RiveLogo from 'components/RiveLogo'
 import classnames, {
   alignItems,
   cursor,
@@ -14,20 +15,25 @@ const wrapper = classnames(
   justifyContent('justify-center', 'md:justify-start'),
   alignItems('items-center'),
   margin('my-8', 'mx-0', 'md:mx-18'),
-  height('h-12')
+  height('h-16')
 )
-const logo = classnames(width('w-40'), cursor('cursor-pointer'))
+
+const logo = classnames(width('w-44'), height('h-16'), cursor('cursor-pointer'))
 
 export default function () {
-  const [location] = useLocation()
+  const [location, setLocation] = useLocation()
 
   if (location === '/') return null
 
   return (
     <div className={wrapper}>
-      <Link className={logo} href="/">
-        <img alt="ketl" className={logo} src="/media/logo.svg" />
-      </Link>
+      <a
+        className={logo}
+        onClick={() => setLocation('/')}
+        onTouchStart={() => setLocation('/')}
+      >
+        <RiveLogo />
+      </a>
     </div>
   )
 }

@@ -23,7 +23,7 @@ export function HeaderText({
 }
 
 const bodyText = classnames(
-  textColor('text-blue-default'),
+  textColor('text-blue-light'),
   textAlign('text-right'),
   fontWeight('font-bold'),
   fontSize('text-4xl', 'fold:text-5xl', 'md:text-7xl')

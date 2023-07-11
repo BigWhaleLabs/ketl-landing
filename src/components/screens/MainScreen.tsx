@@ -1,18 +1,25 @@
 import { BodyText } from 'components/Text'
 import Button from 'components/Button'
+import RiveLogo from 'components/RiveLogo'
 import classnames, {
   alignItems,
   display,
   flex,
   flexDirection,
   gap,
+  height,
   justifyContent,
   margin,
   padding,
+  width,
   zIndex,
 } from 'classnames/tailwind'
 
-const logo = classnames(margin('my-20'))
+const logo = classnames(
+  margin('my-20'),
+  width('w-64', 'xs:w-80', 'md:!w-96'),
+  height('h-44')
+)
 const container = classnames(
   display('flex'),
   flex('flex-1'),
@@ -34,7 +41,9 @@ const buttonContainer = classnames(margin('my-10'))
 export default function () {
   return (
     <div className={container}>
-      <img alt="ketl" className={logo} src="/media/logo.svg" />
+      <div className={logo}>
+        <RiveLogo />
+      </div>
       <div className={text}>
         <BodyText>verified,</BodyText>
         <BodyText>anonymous</BodyText>

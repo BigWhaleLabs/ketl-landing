@@ -23,9 +23,7 @@ const wrapper = classnames(
 const logo = classnames(width('w-44'), height('h-16'), cursor('cursor-pointer'))
 
 export default function () {
-  const [location, setLocation] = useLocation()
-
-  if (location === '/') return null
+  const [, setLocation] = useLocation()
 
   return (
     <div className={wrapper}>

@@ -1,56 +1,48 @@
-import { BodyText } from 'components/Text'
+import AppMotto from 'icons/AppMotto'
 import Button from 'components/Button'
-import RiveLogo from 'components/RiveLogo'
+import WhatPeopleThink from 'icons/WhatPeopleThink'
 import classnames, {
   alignItems,
   display,
-  flex,
   flexDirection,
-  gap,
-  height,
   justifyContent,
   margin,
   padding,
+  scale,
+  transitionProperty,
   width,
   zIndex,
 } from 'classnames/tailwind'
 
-const logo = classnames(
-  margin('my-20'),
-  width('w-64', 'xs:w-80', 'md:!w-96'),
-  height('h-44')
+const whatPeopleThinkWrapper = classnames(
+  scale('scale-50', 'xs:scale-65', 'md:scale-100'),
+  transitionProperty('transition-transform')
 )
+const mottoWrapper = classnames(width('w-64', 'xs:w-80', 'md:w-96'))
 const container = classnames(
   display('flex'),
-  flex('flex-1'),
   flexDirection('flex-col'),
-  justifyContent('justify-center'),
   alignItems('items-center'),
+  justifyContent('justify-center'),
   zIndex('z-20'),
   padding('px-4')
 )
-const text = classnames(
-  display('flex'),
-  flexDirection('flex-col'),
-  justifyContent('justify-center'),
-  alignItems('items-end'),
-  gap('gap-4')
-)
+
 const buttonContainer = classnames(margin('my-10'))
 
 export default function () {
   return (
     <div className={container}>
-      <div className={logo}>
-        <RiveLogo />
+      <div className={mottoWrapper}>
+        <AppMotto />
       </div>
-      <div className={text}>
-        <BodyText>verified,</BodyText>
-        <BodyText>anonymous</BodyText>
-        <BodyText>discussions</BodyText>
-      </div>
+
       <div className={buttonContainer}>
         <Button small title="Join the waitlist" />
+      </div>
+
+      <div className={whatPeopleThinkWrapper}>
+        <WhatPeopleThink />
       </div>
     </div>
   )

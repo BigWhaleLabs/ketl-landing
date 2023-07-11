@@ -7,6 +7,7 @@ import classnames, {
   height,
   justifyContent,
   margin,
+  transitionProperty,
   width,
 } from 'classnames/tailwind'
 
@@ -15,7 +16,8 @@ const wrapper = classnames(
   justifyContent('justify-center', 'md:justify-start'),
   alignItems('items-center'),
   margin('my-8', 'mx-0', 'md:mx-18'),
-  height('h-16')
+  height('h-16'),
+  transitionProperty('transition-all')
 )
 
 const logo = classnames(width('w-44'), height('h-16'), cursor('cursor-pointer'))

@@ -15,6 +15,8 @@ import classnames, {
   margin,
   padding,
   position,
+  scale,
+  transitionProperty,
   width,
 } from 'classnames/tailwind'
 import openBlankTab from 'helpers/openBlankTab'
@@ -29,9 +31,10 @@ const wrapper = classnames(
   margin('mt-4')
 )
 const screenWrapper = classnames(wrapper, width('w-full'), padding('px-4'))
-const floatingText = classnames(
-  margin('ml-128', 'mt-2'),
-  display('hidden', 'xl:block')
+const floatingTextWrapper = classnames(
+  scale('scale-50', 'xs:scale-65', 'md:scale-100'),
+  transitionProperty('transition-transform'),
+  margin('mt-6')
 )
 
 export default function () {
@@ -42,11 +45,7 @@ export default function () {
 
   return (
     <div className={screenWrapper}>
-      <HeaderText color="text-blue-light">How to get</HeaderText>
-      <HeaderText color="text-blue-light">started</HeaderText>
-      <div className={floatingText}>
-        <BeforeWeHitAppStore />
-      </div>
+      <HeaderText color="text-blue-light">How to get started</HeaderText>
       <div className={wrapper}>
         <BasicText bold small>
           For iOS users:
@@ -69,6 +68,9 @@ export default function () {
           title="Get access on discord"
           onClick={() => openBlankTab(discordLink)}
         />
+      </div>
+      <div className={floatingTextWrapper}>
+        <BeforeWeHitAppStore />
       </div>
     </div>
   )

@@ -10,7 +10,7 @@ import ChildrenProp from 'models/ChildrenProp'
 
 const headerText = (color?: TTextColor) =>
   classnames(
-    fontSize('text-3xl', 'fold:text-5xl', 'sm:text-6xl'),
+    fontSize('text-3xl', 'sm:text-6xl'),
     fontWeight('font-bold'),
     textAlign('text-center'),
     textColor(color)

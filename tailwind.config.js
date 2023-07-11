@@ -21,6 +21,9 @@ module.exports = {
       fontFamily: {
         sans: ['Space Grotesk', ...defaultTheme.fontFamily.sans],
       },
+      scale: {
+        65: '0.65',
+      },
       screens: {
         fold: '281px',
         xs: '341px',

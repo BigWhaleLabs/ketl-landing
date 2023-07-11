@@ -48,3 +48,20 @@ circle {
 ::-moz-selection {
   background: var(--selection);
 }
+
+.floating-letters path:nth-child(n) {
+  animation: floating 2000ms 200ms ease-in-out infinite;
+}
+.floating-letters path:nth-child(2n) {
+  animation: floating 2000ms ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translate(0, 0rem);
+  }
+  50% {
+    transform: translate(0, 0.25rem);
+  }
+}

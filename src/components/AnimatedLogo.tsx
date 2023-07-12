@@ -11,7 +11,7 @@ export default function () {
     rive,
     stateMachineName,
     'hover',
-    false
+    true
   )
 
   return (

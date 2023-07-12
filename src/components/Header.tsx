@@ -1,5 +1,5 @@
 import { useLocation } from 'wouter-preact'
-import RiveLogo from 'components/RiveLogo'
+import AnimatedLogo from 'components/AnimatedLogo'
 import classnames, {
   alignItems,
   cursor,
@@ -32,7 +32,7 @@ export default function () {
         onClick={() => setLocation('/')}
         onTouchStart={() => setLocation('/')}
       >
-        <RiveLogo />
+        <AnimatedLogo />
       </a>
     </div>
   )

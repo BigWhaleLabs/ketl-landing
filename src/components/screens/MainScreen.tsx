@@ -10,6 +10,7 @@ import AppMotto from 'icons/AppMotto'
 import Button from 'components/Button'
 import GetOnGooglePlay from 'icons/GetOnGooglePlay'
 import GetOnTestflight from 'icons/GetOnTestflight'
+import StoreButton from 'components/StoreButton'
 import WhatPeopleThink from 'icons/WhatPeopleThink'
 import classnames, {
   alignItems,
@@ -31,7 +32,6 @@ const whatPeopleThinkWrapper = classnames(
   transitionProperty('transition-transform')
 )
 const elementsWidth = width('w-64', 'xs:w-80', 'md:w-104')
-const buttonsWidth = width('w-64', 'xs:w-80', 'md:w-50')
 const container = classnames(
   display('flex'),
   flexDirection('flex-col'),
@@ -65,22 +65,12 @@ export default function () {
       </div>
 
       <div className={downloadButtonsWrapper}>
-        <Button
-          bold
-          smallPaddings
-          fixedHeight="h-15"
-          fixedWidth={buttonsWidth}
-          fontSized="text-lg"
-          leftIcon={GetOnTestflight()}
+        <StoreButton
+          icon={GetOnTestflight()}
           onClick={() => openBlankTab(testFlightLink)}
         />
-        <Button
-          bold
-          smallPaddings
-          fixedHeight="h-15"
-          fixedWidth={buttonsWidth}
-          fontSized="text-lg"
-          leftIcon={GetOnGooglePlay()}
+        <StoreButton
+          icon={GetOnGooglePlay()}
           onClick={() =>
             openBlankTab(isAndroid ? androidPlayStore : webPlayStore)
           }

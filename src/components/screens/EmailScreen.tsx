@@ -46,7 +46,7 @@ function OpenKetlBlock({ domain, token }: EmailScreenParams) {
     <div className={caption}>
       <CaptionText>{captionText}</CaptionText>
       <Button
-        small={false}
+        smallPaddings={false}
         title={buttonText}
         onClick={() =>
           isMobileDevice

@@ -2,9 +2,13 @@ import { JSXInternal } from 'preact/src/jsx'
 import classnames, {
   TFontSize,
   THeight,
+  TTailwindString,
+  TTextColor,
   alignItems,
   backgroundColor,
+  borderColor,
   borderRadius,
+  borderWidth,
   display,
   fontSize,
   fontWeight,
@@ -24,36 +28,49 @@ import classnames, {
 
 interface ButtonProps {
   title?: string
-  small?: boolean
+  smallPaddings?: boolean
   onClick?: () => void
   leftIcon?: JSXInternal.Element
-  fullWidth?: boolean
   bold?: boolean
   fontSized?: TFontSize
   fixedHeight?: THeight
+  fixedWidth?: TTailwindString
+  color?: TTextColor
+  outline?: boolean
 }
 
 const buttonClassnames = ({
   bold,
+  color,
   fixedHeight,
+  fixedWidth,
   fontSized,
-  fullWidth,
-  small,
-}: ButtonProps) =>
-  classnames(
+  outline,
+  smallPaddings,
+}: ButtonProps) => {
+  return classnames(
     display('flex'),
     alignItems('items-center'),
     justifyContent('justify-center'),
     gap('gap-x-3'),
-    backgroundColor('bg-blue-default'),
-    textColor('text-white'),
+    backgroundColor(outline ? 'bg-transparent' : 'bg-blue-default'),
+    borderColor('border-blue-light'),
+    borderWidth({ border: outline }),
+    textColor(color || 'text-white'),
     fontWeight({ 'font-bold': bold }),
     fontSize(fontSized),
-    padding('px-6', 'sm:px-14', small ? 'py-3' : 'py-4'),
+    padding(
+      {
+        'px-4': smallPaddings,
+        'px-6': !smallPaddings,
+        'sm:px-14': !smallPaddings,
+      },
+      smallPaddings ? 'py-1' : 'py-4'
+    ),
     height(fixedHeight || 'h-fit'),
-    fullWidth
-      ? width('w-full')
-      : width(small ? 'w-fit' : { 'sm:w-fit': true, 'w-full': true }),
+    fixedWidth
+      ? width(fixedWidth)
+      : width(smallPaddings ? 'w-fit' : { 'sm:w-fit': true, 'w-full': true }),
     borderRadius('rounded-full'),
     opacity('hover:opacity-80', 'active:opacity-50'),
     transitionProperty('transition'),
@@ -62,24 +79,29 @@ const buttonClassnames = ({
     userSelect('select-none'),
     outlineStyle('focus:outline-none')
   )
+}
 export default function ({
   bold,
+  color,
   fixedHeight,
+  fixedWidth,
   fontSized,
-  fullWidth,
   leftIcon,
   onClick,
-  small,
+  outline,
+  smallPaddings,
   title,
 }: ButtonProps) {
   return (
     <button
       className={buttonClassnames({
         bold,
+        color,
         fixedHeight,
+        fixedWidth,
         fontSized,
-        fullWidth,
-        small,
+        outline,
+        smallPaddings,
       })}
       onClick={onClick}
     >

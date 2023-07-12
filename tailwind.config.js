@@ -17,7 +17,8 @@ module.exports = {
       spacing: {
         15: '3.75rem',
         18: '4.5rem',
-        128: '32rem',
+        50: '12.5rem',
+        104: '26rem',
       },
       fontFamily: {
         sans: ['Space Grotesk', ...defaultTheme.fontFamily.sans],

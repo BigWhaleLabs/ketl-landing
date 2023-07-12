@@ -35,19 +35,21 @@ export function BodyText({ children }: ChildrenProp) {
 interface BasicTextProps {
   bold?: boolean
   small?: boolean
+  color?: TTextColor
 }
-export const basicTextStyles = ({ bold, small }: BasicTextProps) =>
+export const basicTextStyles = ({ bold, color, small }: BasicTextProps) =>
   classnames(
-    textColor('text-formal'),
+    textColor(color || 'text-formal'),
     fontSize({ 'text-xs': small }),
     fontWeight({ 'font-bold': bold })
   )
 export function BasicText({
   bold,
   children,
+  color,
   small,
 }: ChildrenProp & BasicTextProps) {
-  return <p className={basicTextStyles({ bold, small })}>{children}</p>
+  return <p className={basicTextStyles({ bold, color, small })}>{children}</p>
 }
 
 const captionText = classnames(

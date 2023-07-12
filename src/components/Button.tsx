@@ -1,6 +1,7 @@
 import { JSXInternal } from 'preact/src/jsx'
 import classnames, {
   TFontSize,
+  THeight,
   alignItems,
   backgroundColor,
   borderRadius,
@@ -8,6 +9,7 @@ import classnames, {
   fontSize,
   fontWeight,
   gap,
+  height,
   justifyContent,
   opacity,
   outlineStyle,
@@ -28,9 +30,16 @@ interface ButtonProps {
   fullWidth?: boolean
   bold?: boolean
   fontSized?: TFontSize
+  fixedHeight?: THeight
 }
 
-const buttonClassnames = ({ bold, fontSized, fullWidth, small }: ButtonProps) =>
+const buttonClassnames = ({
+  bold,
+  fixedHeight,
+  fontSized,
+  fullWidth,
+  small,
+}: ButtonProps) =>
   classnames(
     display('flex'),
     alignItems('items-center'),
@@ -40,7 +49,8 @@ const buttonClassnames = ({ bold, fontSized, fullWidth, small }: ButtonProps) =>
     textColor('text-white'),
     fontWeight({ 'font-bold': bold }),
     fontSize(fontSized),
-    padding('px-6', 'sm:px-14', small ? 'py-2' : 'py-4'),
+    padding('px-6', 'sm:px-14', small ? 'py-3' : 'py-4'),
+    height(fixedHeight || 'h-fit'),
     fullWidth
       ? width('w-full')
       : width(small ? 'w-fit' : { 'sm:w-fit': true, 'w-full': true }),
@@ -48,12 +58,13 @@ const buttonClassnames = ({ bold, fontSized, fullWidth, small }: ButtonProps) =>
     opacity('hover:opacity-80', 'active:opacity-50'),
     transitionProperty('transition'),
     transitionDuration('duration-100'),
-    scale(small ? 'hover:scale-125' : 'hover:scale-105'),
+    scale('hover:scale-105'),
     userSelect('select-none'),
     outlineStyle('focus:outline-none')
   )
 export default function ({
   bold,
+  fixedHeight,
   fontSized,
   fullWidth,
   leftIcon,
@@ -65,14 +76,12 @@ export default function ({
     <button
       className={buttonClassnames({
         bold,
+        fixedHeight,
         fontSized,
         fullWidth,
         small,
       })}
-      onClick={() => {
-        if (onClick) return onClick()
-        else window.open('https://bit.ly/ketl-invites', '_blank')
-      }}
+      onClick={onClick}
     >
       {leftIcon}
       {title}

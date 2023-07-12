@@ -1,10 +1,10 @@
 import { BasicText, HeaderText } from 'components/Text'
-import { discordLink, testFlightLink } from 'helpers/data'
+import { androidPlayStore, testFlightLink, webPlayStore } from 'helpers/data'
 import { isAndroid, isIos } from 'helpers/isMobileDevice'
 import { useEffect } from 'preact/hooks'
 import BeforeWeHitAppStore from 'icons/BeforeWeHitAppStore'
 import Button from 'components/Button'
-import DiscordIcon from 'icons/Discord'
+import GetOnGooglePlay from 'icons/GetOnGooglePlay'
 import TestFlightIcon from 'icons/TestFlight'
 import classnames, {
   alignItems,
@@ -39,7 +39,7 @@ const floatingTextWrapper = classnames(
 
 export default function () {
   useEffect(() => {
-    if (isAndroid) openBlankTab(discordLink)
+    if (isAndroid) openBlankTab(androidPlayStore)
     if (isIos) openBlankTab(testFlightLink)
   }, [])
 
@@ -47,26 +47,27 @@ export default function () {
     <div className={screenWrapper}>
       <HeaderText color="text-blue-light">How to get started</HeaderText>
       <div className={wrapper}>
-        <BasicText bold small>
-          For iOS users:
-        </BasicText>
         <Button
           bold
+          fixedHeight="h-15"
           fontSized="text-lg"
           leftIcon={TestFlightIcon()}
           title="Download through TestFlight"
           onClick={() => openBlankTab(testFlightLink)}
         />
         <BasicText bold small>
-          For Android users:
+          Or
         </BasicText>
         <Button
           bold
           fullWidth
+          small
+          fixedHeight="h-15"
           fontSized="text-lg"
-          leftIcon={DiscordIcon()}
-          title="Get access on discord"
-          onClick={() => openBlankTab(discordLink)}
+          leftIcon={GetOnGooglePlay()}
+          onClick={() =>
+            openBlankTab(isAndroid ? androidPlayStore : webPlayStore)
+          }
         />
       </div>
       <div className={floatingTextWrapper}>

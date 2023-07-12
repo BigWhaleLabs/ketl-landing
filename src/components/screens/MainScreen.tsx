@@ -38,7 +38,11 @@ export default function () {
       </div>
 
       <div className={buttonContainer}>
-        <Button small title="Join the waitlist" />
+        <Button
+          small
+          title="Join the waitlist"
+          onClick={() => window.open('https://bit.ly/ketl-invites', '_blank')}
+        />
       </div>
 
       <div className={whatPeopleThinkWrapper}>

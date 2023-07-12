@@ -41,14 +41,14 @@ interface ButtonProps {
 
 const buttonClassnames = ({
   bold,
-  color,
-  fixedHeight,
+  color = 'text-white',
+  fixedHeight = 'h-fit',
   fixedWidth,
   fontSized,
   outline,
   smallPaddings,
-}: ButtonProps) => {
-  return classnames(
+}: ButtonProps) =>
+  classnames(
     display('flex'),
     alignItems('items-center'),
     justifyContent('justify-center'),
@@ -56,18 +56,15 @@ const buttonClassnames = ({
     backgroundColor(outline ? 'bg-transparent' : 'bg-blue-default'),
     borderColor('border-blue-light'),
     borderWidth({ border: outline }),
-    textColor(color || 'text-white'),
+    textColor(color),
     fontWeight({ 'font-bold': bold }),
     fontSize(fontSized),
     padding(
-      {
-        'px-4': smallPaddings,
-        'px-6': !smallPaddings,
-        'sm:px-14': !smallPaddings,
-      },
-      smallPaddings ? 'py-1' : 'py-4'
+      smallPaddings
+        ? { 'px-4': true, 'py-1': true }
+        : { 'px-6': true, 'py-4': true, 'sm:px-14': true }
     ),
-    height(fixedHeight || 'h-fit'),
+    height(fixedHeight),
     width(fixedWidth || { 'sm:w-fit': true, 'w-full': true }),
     borderRadius('rounded-full'),
     opacity('hover:opacity-80', 'active:opacity-50'),
@@ -77,7 +74,7 @@ const buttonClassnames = ({
     userSelect('select-none'),
     outlineStyle('focus:outline-none')
   )
-}
+
 export default function ({
   bold,
   color,

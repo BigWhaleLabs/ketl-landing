@@ -37,9 +37,13 @@ interface BasicTextProps {
   small?: boolean
   color?: TTextColor
 }
-export const basicTextStyles = ({ bold, color, small }: BasicTextProps) =>
+export const basicTextStyles = ({
+  bold,
+  color = 'text-formal',
+  small,
+}: BasicTextProps) =>
   classnames(
-    textColor(color || 'text-formal'),
+    textColor(color),
     fontSize({ 'text-xs': small }),
     fontWeight({ 'font-bold': bold })
   )

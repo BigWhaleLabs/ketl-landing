@@ -68,12 +68,10 @@ const buttonClassnames = ({
       smallPaddings ? 'py-1' : 'py-4'
     ),
     height(fixedHeight || 'h-fit'),
-    fixedWidth
-      ? width(fixedWidth)
-      : width(smallPaddings ? 'w-fit' : { 'sm:w-fit': true, 'w-full': true }),
+    width(fixedWidth || { 'sm:w-fit': true, 'w-full': true }),
     borderRadius('rounded-full'),
     opacity('hover:opacity-80', 'active:opacity-50'),
-    transitionProperty('transition'),
+    transitionProperty('transition-all'),
     transitionDuration('duration-100'),
     scale('hover:scale-105'),
     userSelect('select-none'),

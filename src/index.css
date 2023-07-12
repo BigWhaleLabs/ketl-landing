@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  background-color: var(--blue-end);
+}
+
 :root {
   --accent: #8c29f1;
   --blue-start: #3a00d6;

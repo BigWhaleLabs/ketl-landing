@@ -1,13 +1,19 @@
 import { JSXInternal } from 'preact/src/jsx'
 import classnames, {
   TFontSize,
+  THeight,
+  TTailwindString,
+  TTextColor,
   alignItems,
   backgroundColor,
+  borderColor,
   borderRadius,
+  borderWidth,
   display,
   fontSize,
   fontWeight,
   gap,
+  height,
   justifyContent,
   opacity,
   outlineStyle,
@@ -22,57 +28,77 @@ import classnames, {
 
 interface ButtonProps {
   title?: string
-  small?: boolean
+  smallPaddings?: boolean
   onClick?: () => void
   leftIcon?: JSXInternal.Element
-  fullWidth?: boolean
   bold?: boolean
   fontSized?: TFontSize
+  fixedHeight?: THeight
+  fixedWidth?: TTailwindString
+  color?: TTextColor
+  outline?: boolean
 }
 
-const buttonClassnames = ({ bold, fontSized, fullWidth, small }: ButtonProps) =>
+const buttonClassnames = ({
+  bold,
+  color = 'text-white',
+  fixedHeight = 'h-fit',
+  fixedWidth,
+  fontSized,
+  outline,
+  smallPaddings,
+}: ButtonProps) =>
   classnames(
     display('flex'),
     alignItems('items-center'),
     justifyContent('justify-center'),
     gap('gap-x-3'),
-    backgroundColor('bg-blue-default'),
-    textColor('text-white'),
+    backgroundColor(outline ? 'bg-transparent' : 'bg-blue-default'),
+    borderColor('border-blue-light'),
+    borderWidth({ border: outline }),
+    textColor(color),
     fontWeight({ 'font-bold': bold }),
     fontSize(fontSized),
-    padding('px-6', 'sm:px-14', small ? 'py-2' : 'py-4'),
-    fullWidth
-      ? width('w-full')
-      : width(small ? 'w-fit' : { 'sm:w-fit': true, 'w-full': true }),
+    padding(
+      smallPaddings
+        ? { 'px-4': true, 'py-1': true }
+        : { 'px-6': true, 'py-4': true, 'sm:px-14': true }
+    ),
+    height(fixedHeight),
+    width(fixedWidth || { 'sm:w-fit': true, 'w-full': true }),
     borderRadius('rounded-full'),
     opacity('hover:opacity-80', 'active:opacity-50'),
-    transitionProperty('transition'),
+    transitionProperty('transition-all'),
     transitionDuration('duration-100'),
-    scale(small ? 'hover:scale-125' : 'hover:scale-105'),
+    scale('hover:scale-105'),
     userSelect('select-none'),
     outlineStyle('focus:outline-none')
   )
+
 export default function ({
   bold,
+  color,
+  fixedHeight,
+  fixedWidth,
   fontSized,
-  fullWidth,
   leftIcon,
   onClick,
-  small,
+  outline,
+  smallPaddings,
   title,
 }: ButtonProps) {
   return (
     <button
       className={buttonClassnames({
         bold,
+        color,
+        fixedHeight,
+        fixedWidth,
         fontSized,
-        fullWidth,
-        small,
+        outline,
+        smallPaddings,
       })}
-      onClick={() => {
-        if (onClick) return onClick()
-        else window.open('https://bit.ly/ketl-invites', '_blank')
-      }}
+      onClick={onClick}
     >
       {leftIcon}
       {title}

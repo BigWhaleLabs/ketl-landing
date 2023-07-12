@@ -37,7 +37,7 @@ const caption = classnames(
 function OpenKetlBlock({ domain, token }: EmailScreenParams) {
   const [, navigate] = useLocation()
   if (!domain || !token) return null
-  const buttonText = `${isMobileDevice ? 'Open' : 'Get'} Ketl`
+  const buttonText = `${isMobileDevice ? 'Open' : 'Get'} ketl`
   const captionText = isMobileDevice
     ? 'If Ketl doesn’t open automatically, click the button below.'
     : 'Ketl is available only on mobile devices. Get it by button below.'
@@ -46,12 +46,11 @@ function OpenKetlBlock({ domain, token }: EmailScreenParams) {
     <div className={caption}>
       <CaptionText>{captionText}</CaptionText>
       <Button
-        small={false}
         title={buttonText}
         onClick={() =>
           isMobileDevice
             ? openAppEmailLink({ blank: true, domain, token })
-            : navigate('/app')
+            : navigate('/')
         }
       />
     </div>

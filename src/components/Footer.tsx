@@ -1,5 +1,6 @@
 import { basicTextStyles } from 'components/Text'
-import { ketlTwitterLink, sealCredLink } from 'helpers/data'
+import { ketlDiscordLink, ketlTwitterLink } from 'helpers/data'
+import Discord from 'icons/Discord'
 import Twitter from 'icons/Twitter'
 import classnames, {
   alignItems,
@@ -9,33 +10,30 @@ import classnames, {
   height,
   justifyContent,
   margin,
+  userSelect,
 } from 'classnames/tailwind'
 
 const wrapper = classnames(
   display('flex'),
-  flexDirection('flex-col', 'xs:flex-row'),
+  flexDirection('flex-row'),
   justifyContent('justify-center', 'md:justify-end'),
   alignItems('items-center'),
   gap('gap-3'),
   margin('my-8', 'mx-0', 'md:mx-18'),
   height('h-12'),
+  userSelect('select-none'),
   basicTextStyles({})
 )
-const displayOnXs = display('hidden', 'xs:block')
 
 export default function () {
   return (
     <div className={wrapper}>
       <a href={ketlTwitterLink} target="_blank">
+        <Discord />
+      </a>
+      ·
+      <a href={ketlDiscordLink} target="_blank">
         <Twitter />
-      </a>
-      <div className={displayOnXs}>·</div>
-      <a href={`${sealCredLink}/privacy`} target="_blank">
-        Privacy policy
-      </a>
-      <div className={displayOnXs}>·</div>
-      <a href={`${sealCredLink}/terms`} target="_blank">
-        Terms of service
       </a>
     </div>
   )

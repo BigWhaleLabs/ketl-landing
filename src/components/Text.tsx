@@ -1,10 +1,13 @@
 import {
   TTextColor,
   classnames,
+  cursor,
   fontSize,
   fontWeight,
+  padding,
   textAlign,
   textColor,
+  wordBreak,
 } from 'classnames/tailwind'
 import ChildrenProp from 'models/ChildrenProp'
 
@@ -64,4 +67,32 @@ const captionText = classnames(
 )
 export function CaptionText({ children }: ChildrenProp) {
   return <p className={captionText}>{children}</p>
+}
+
+const instractionText = classnames(
+  textColor('text-blue-light'),
+  textAlign('text-center'),
+  fontSize('text-xl')
+)
+export function InstractionText({ children }: ChildrenProp) {
+  return <p className={instractionText}>{children}</p>
+}
+
+const codeText = classnames(
+  textColor('text-blue-light'),
+  textAlign('text-center'),
+  wordBreak('break-all'),
+  fontSize('text-xl'),
+  padding('p-2'),
+  cursor('cursor-pointer')
+)
+export function TokenText({
+  children,
+  onClick,
+}: ChildrenProp & { onClick: () => void }) {
+  return (
+    <code className={codeText} onClick={onClick}>
+      {children}
+    </code>
+  )
 }

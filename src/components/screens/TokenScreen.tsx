@@ -1,8 +1,10 @@
-import { CaptionText } from 'components/Text'
+import { CaptionText, InstractionText, TokenText } from 'components/Text'
 import { androidPlayStore, testFlightLink, webPlayStore } from 'helpers/data'
 import { isAndroid, isIos } from 'helpers/isMobileDevice'
 import { isMobileDevice } from 'helpers/isMobileDevice'
+import { useLocation } from 'wouter-preact'
 import AnonFace from 'icons/AnonFace'
+import Button from 'components/Button'
 import GetOnGooglePlay from 'icons/GetOnGooglePlay'
 import GetOnTestflight from 'icons/GetOnTestflight'
 import StoreButton from 'components/StoreButton'
@@ -14,9 +16,11 @@ import classnames, {
   flexDirection,
   gap,
   justifyContent,
+  margin,
   padding,
   zIndex,
 } from 'classnames/tailwind'
+import copy from 'copy-to-clipboard'
 import openAppTokenLink from 'helpers/openAppTokenLink'
 import openBlankTab from 'helpers/openBlankTab'
 
@@ -38,6 +42,24 @@ const caption = classnames(
   gap('gap-y-8')
 )
 
+const instraction = classnames(
+  margin('my-20'),
+  display('flex'),
+  flexDirection('flex-col'),
+  justifyContent('justify-center'),
+  alignItems('items-center'),
+  gap('gap-y-2')
+)
+
+const secretToken = classnames(
+  margin('my-10'),
+  display('flex'),
+  flexDirection('flex-col'),
+  justifyContent('justify-center'),
+  alignItems('items-center'),
+  gap('gap-y-2')
+)
+
 const downloadButtonsWrapper = classnames(
   display('flex'),
   flexDirection('flex-col', 'md:flex-row'),
@@ -47,17 +69,22 @@ const downloadButtonsWrapper = classnames(
 )
 
 function OpenKetlBlock({ token }: TokenScreenParams) {
-  if (!token) return null
+  const [, navigate] = useLocation()
+  if (!token) {
+    navigate('/')
+    return null
+  }
+
+  function onCopy() {
+    if (token) copy(token)
+  }
 
   const captionText = isMobileDevice
     ? 'If Ketl doesn’t open automatically, click on the button below to install the app and open this page again'
-    : 'Ketl is available only on mobile devices. Get it by button below and open this page again'
+    : 'Ketl is available only on mobile devices. Get it by button below and open this page on mobile device again'
 
   return (
     <div className={caption}>
-      <CaptionText>
-        This is your link with the profile activation code!
-      </CaptionText>
       <CaptionText>{captionText}</CaptionText>
 
       <div className={downloadButtonsWrapper}>
@@ -75,6 +102,24 @@ function OpenKetlBlock({ token }: TokenScreenParams) {
             }
           />
         )}
+      </div>
+
+      <div className={instraction}>
+        <CaptionText>
+          You can also enter the code manually by following instruction:
+        </CaptionText>
+        <InstractionText>1) Open the Ketl app</InstractionText>
+        <InstractionText>
+          2) Click on the "Verify anonymously" or "Sign Up" button
+        </InstractionText>
+        <InstractionText>3) Select "I have an access token"</InstractionText>
+        <InstractionText>
+          4) Copy and paste your secret token into the input field
+        </InstractionText>
+        <div className={secretToken}>
+          <Button title="Copy to clipboard" onClick={onCopy} />
+          <TokenText onClick={onCopy}>{token}</TokenText>
+        </div>
       </div>
     </div>
   )

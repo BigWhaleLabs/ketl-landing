@@ -26,6 +26,7 @@
   "dependencies": {
     "@rive-app/react-canvas": "^3.0.54",
     "@vitejs/plugin-react": "^3.1.0",
+    "copy-to-clipboard": "^3.3.3",
     "preact": "^10.13.0",
     "wouter-preact": "^2.11.0-dev.2"
   },

@@ -6,6 +6,8 @@ import {
   webPlayStore,
 } from 'helpers/data'
 import { isAndroid } from 'helpers/isMobileDevice'
+import { useEffect } from 'preact/hooks'
+import { useLocation } from 'wouter-preact'
 import AppMotto from 'icons/AppMotto'
 import Button from 'components/Button'
 import GetOnGooglePlay from 'icons/GetOnGooglePlay'
@@ -58,6 +60,15 @@ const bottomBlockWrapper = classnames(
 )
 
 export default function () {
+  const [, setLocation] = useLocation()
+
+  useEffect(() => {
+    const urlSearchParams = new URLSearchParams(window.location.search)
+
+    if (urlSearchParams.has('token'))
+      setLocation(`/token/${urlSearchParams.get('token')}`)
+  }, [setLocation])
+
   return (
     <div className={container}>
       <div className={elementsWidth}>

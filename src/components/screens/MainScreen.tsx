@@ -1,25 +1,16 @@
 import { BasicText } from 'components/Text'
-import {
-  androidPlayStore,
-  testFlightLink,
-  verificationFrom,
-  webPlayStore,
-} from 'helpers/data'
-import { isAndroid } from 'helpers/isMobileDevice'
 import { useEffect } from 'preact/hooks'
 import { useLocation } from 'wouter-preact'
+import { verificationFrom } from 'helpers/data'
 import AppMotto from 'icons/AppMotto'
 import Button from 'components/Button'
-import GetOnGooglePlay from 'icons/GetOnGooglePlay'
-import GetOnTestflight from 'icons/GetOnTestflight'
-import StoreButton from 'components/StoreButton'
+import StoreButtons from 'components/StoreButtons'
 import WhatPeopleThink from 'icons/WhatPeopleThink'
 import classnames, {
   alignItems,
   display,
   flexDirection,
   gap,
-  justifyContent,
   margin,
   padding,
   scale,
@@ -40,15 +31,6 @@ const container = classnames(
   alignItems('items-center'),
   zIndex('z-20'),
   padding('px-4')
-)
-
-const downloadButtonsWrapper = classnames(
-  margin('my-4', 'xs:my-10'),
-  display('flex'),
-  flexDirection('flex-col', 'md:flex-row'),
-  gap('gap-4'),
-  alignItems('items-center'),
-  justifyContent('justify-center')
 )
 
 const bottomBlockWrapper = classnames(
@@ -75,18 +57,7 @@ export default function () {
         <AppMotto />
       </div>
 
-      <div className={downloadButtonsWrapper}>
-        <StoreButton
-          icon={GetOnTestflight()}
-          onClick={() => openBlankTab(testFlightLink)}
-        />
-        <StoreButton
-          icon={GetOnGooglePlay()}
-          onClick={() =>
-            openBlankTab(isAndroid ? androidPlayStore : webPlayStore)
-          }
-        />
-      </div>
+      <StoreButtons showAndroid showIos />
 
       <div className={whatPeopleThinkWrapper}>
         <WhatPeopleThink />

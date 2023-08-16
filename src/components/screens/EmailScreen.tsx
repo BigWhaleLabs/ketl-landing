@@ -4,6 +4,7 @@ import { useLocation } from 'wouter-preact'
 import AnonFace from 'icons/AnonFace'
 import Button from 'components/Button'
 import EmailScreenParams from 'models/EmailScreenParams'
+import KetlPath from 'models/KetlPath'
 import classnames, {
   alignItems,
   display,
@@ -14,7 +15,7 @@ import classnames, {
   padding,
   zIndex,
 } from 'classnames/tailwind'
-import openAppEmailLink from 'helpers/openAppEmailLink'
+import openAppLink from 'helpers/openAppLink'
 
 const wrapper = classnames(
   display('flex'),
@@ -49,7 +50,7 @@ function OpenKetlBlock({ domain, token }: EmailScreenParams) {
         title={buttonText}
         onClick={() =>
           isMobileDevice
-            ? openAppEmailLink({ blank: true, domain, token })
+            ? openAppLink({ blank: true, domain, path: KetlPath.email, token })
             : navigate('/')
         }
       />
@@ -58,7 +59,8 @@ function OpenKetlBlock({ domain, token }: EmailScreenParams) {
 }
 
 export default function EmailScreen({ domain, token }: EmailScreenParams) {
-  if (domain && token && isMobileDevice) openAppEmailLink({ domain, token })
+  if (domain && token && isMobileDevice)
+    openAppLink({ domain, path: KetlPath.email, token })
 
   return (
     <div className={wrapper}>

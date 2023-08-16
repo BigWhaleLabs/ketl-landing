@@ -1,12 +1,10 @@
 import { CaptionText, InstractionText, TokenText } from 'components/Text'
-import { androidPlayStore, testFlightLink, webPlayStore } from 'helpers/data'
 import { isAndroid, isIos } from 'helpers/isMobileDevice'
 import { isMobileDevice } from 'helpers/isMobileDevice'
 import AnonFace from 'icons/AnonFace'
 import Button from 'components/Button'
-import GetOnGooglePlay from 'icons/GetOnGooglePlay'
-import GetOnTestflight from 'icons/GetOnTestflight'
-import StoreButton from 'components/StoreButton'
+import KetlPath from 'models/KetlPath'
+import StoreButtons from 'components/StoreButtons'
 import TokenScreenParams from 'models/TokenScreenParams'
 import classnames, {
   alignItems,
@@ -20,8 +18,7 @@ import classnames, {
   zIndex,
 } from 'classnames/tailwind'
 import copy from 'copy-to-clipboard'
-import openAppTokenLink from 'helpers/openAppTokenLink'
-import openBlankTab from 'helpers/openBlankTab'
+import openAppLink from 'helpers/openAppLink'
 
 const wrapper = classnames(
   display('flex'),
@@ -42,7 +39,6 @@ const caption = classnames(
 )
 
 const instraction = classnames(
-  margin('my-20'),
   display('flex'),
   flexDirection('flex-col'),
   justifyContent('justify-center'),
@@ -59,14 +55,6 @@ const secretToken = classnames(
   gap('gap-y-2')
 )
 
-const downloadButtonsWrapper = classnames(
-  display('flex'),
-  flexDirection('flex-col', 'md:flex-row'),
-  gap('gap-4'),
-  alignItems('items-center'),
-  justifyContent('justify-center')
-)
-
 function OpenKetlBlock({ token }: TokenScreenParams) {
   function onCopy() {
     if (token) copy(token)
@@ -80,22 +68,10 @@ function OpenKetlBlock({ token }: TokenScreenParams) {
     <div className={caption}>
       <CaptionText>{captionText}</CaptionText>
 
-      <div className={downloadButtonsWrapper}>
-        {(isIos || !isMobileDevice) && (
-          <StoreButton
-            icon={GetOnTestflight()}
-            onClick={() => openBlankTab(testFlightLink)}
-          />
-        )}
-        {(isAndroid || !isMobileDevice) && (
-          <StoreButton
-            icon={GetOnGooglePlay()}
-            onClick={() =>
-              openBlankTab(isAndroid ? androidPlayStore : webPlayStore)
-            }
-          />
-        )}
-      </div>
+      <StoreButtons
+        showAndroid={isAndroid || !isMobileDevice}
+        showIos={isIos || !isMobileDevice}
+      />
 
       <div className={instraction}>
         <CaptionText>
@@ -119,7 +95,7 @@ function OpenKetlBlock({ token }: TokenScreenParams) {
 }
 
 export default function TokenScreen({ token }: TokenScreenParams) {
-  if (isMobileDevice) openAppTokenLink({ token })
+  if (isMobileDevice) openAppLink({ path: KetlPath.token, token })
 
   return (
     <div className={wrapper}>

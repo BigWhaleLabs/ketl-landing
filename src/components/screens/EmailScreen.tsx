@@ -50,7 +50,11 @@ function OpenKetlBlock({ domain, token }: EmailScreenParams) {
         title={buttonText}
         onClick={() =>
           isMobileDevice
-            ? openAppLink({ blank: true, domain, path: KetlPath.email, token })
+            ? openAppLink({
+                blank: true,
+                params: { domain, token },
+                path: KetlPath.email,
+              })
             : navigate('/')
         }
       />
@@ -60,7 +64,7 @@ function OpenKetlBlock({ domain, token }: EmailScreenParams) {
 
 export default function EmailScreen({ domain, token }: EmailScreenParams) {
   if (domain && token && isMobileDevice)
-    openAppLink({ domain, path: KetlPath.email, token })
+    openAppLink({ params: { domain, token }, path: KetlPath.email })
 
   return (
     <div className={wrapper}>

@@ -1,5 +1,5 @@
 import { androidPlayStore, testFlightLink, webPlayStore } from 'helpers/data'
-import { isAndroid, isIos, isMobileDevice } from 'helpers/isMobileDevice'
+import { isAndroid } from 'helpers/isMobileDevice'
 import GetOnGooglePlay from 'icons/GetOnGooglePlay'
 import GetOnTestflight from 'icons/GetOnTestflight'
 import StoreButton from 'components/StoreButton'

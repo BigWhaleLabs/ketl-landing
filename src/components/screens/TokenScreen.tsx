@@ -1,6 +1,7 @@
 import { CaptionText, InstractionText, TokenText } from 'components/Text'
 import { isAndroid, isIos } from 'helpers/isMobileDevice'
 import { isMobileDevice } from 'helpers/isMobileDevice'
+import { useState } from 'preact/hooks'
 import AnonFace from 'icons/AnonFace'
 import Button from 'components/Button'
 import KetlPath from 'models/KetlPath'
@@ -56,13 +57,18 @@ const secretToken = classnames(
 )
 
 function OpenKetlBlock({ token }: TokenScreenParams) {
+  const [show, setReveal] = useState(false)
   function onCopy() {
     if (token) copy(token)
   }
 
+  function onReveal() {
+    setReveal(true)
+  }
+
   const captionText = isMobileDevice
-    ? 'If Ketl doesn’t open automatically, click on the button below to install the app and open this page again'
-    : 'Ketl is available only on mobile devices. Get it by button below and open this page on mobile device again'
+    ? 'If Ketl doesn’t open automatically, click on the button below to install the app and open this page again to register the account'
+    : 'Ketl is available only on mobile devices. Get it by button below and open this page on the mobile device again'
 
   return (
     <div className={caption}>
@@ -75,7 +81,7 @@ function OpenKetlBlock({ token }: TokenScreenParams) {
 
       <div className={instraction}>
         <CaptionText>
-          You can also enter the code manually by following instruction:
+          OR you can enter the code manually by following instruction:
         </CaptionText>
         <InstractionText>1) Open the Ketl app</InstractionText>
         <InstractionText>
@@ -87,7 +93,9 @@ function OpenKetlBlock({ token }: TokenScreenParams) {
         </InstractionText>
         <div className={secretToken}>
           <Button title="Copy to clipboard" onClick={onCopy} />
-          <TokenText onClick={onCopy}>{token}</TokenText>
+          <TokenText onClick={onReveal}>
+            {show ? token : <i>Click to reveal your token</i>}
+          </TokenText>
         </div>
       </div>
     </div>
@@ -95,7 +103,7 @@ function OpenKetlBlock({ token }: TokenScreenParams) {
 }
 
 export default function TokenScreen({ token }: TokenScreenParams) {
-  if (isMobileDevice) openAppLink({ path: KetlPath.token, token })
+  if (isMobileDevice) openAppLink({ params: { token }, path: KetlPath.token })
 
   return (
     <div className={wrapper}>

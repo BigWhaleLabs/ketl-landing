@@ -2,7 +2,6 @@ import { CaptionText, InstractionText, TokenText } from 'components/Text'
 import { androidPlayStore, testFlightLink, webPlayStore } from 'helpers/data'
 import { isAndroid, isIos } from 'helpers/isMobileDevice'
 import { isMobileDevice } from 'helpers/isMobileDevice'
-import { useLocation } from 'wouter-preact'
 import AnonFace from 'icons/AnonFace'
 import Button from 'components/Button'
 import GetOnGooglePlay from 'icons/GetOnGooglePlay'
@@ -69,12 +68,6 @@ const downloadButtonsWrapper = classnames(
 )
 
 function OpenKetlBlock({ token }: TokenScreenParams) {
-  const [, navigate] = useLocation()
-  if (!token) {
-    navigate('/')
-    return null
-  }
-
   function onCopy() {
     if (token) copy(token)
   }
@@ -126,7 +119,7 @@ function OpenKetlBlock({ token }: TokenScreenParams) {
 }
 
 export default function TokenScreen({ token }: TokenScreenParams) {
-  if (token && isMobileDevice) openAppTokenLink({ token })
+  if (isMobileDevice) openAppTokenLink({ token })
 
   return (
     <div className={wrapper}>

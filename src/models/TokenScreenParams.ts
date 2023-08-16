@@ -1,3 +1,3 @@
 export default interface TokenScreenParams {
-  token?: string
+  token: string
 }

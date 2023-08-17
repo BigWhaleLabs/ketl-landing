@@ -8,11 +8,13 @@ module.exports = {
       colors: {
         accent: 'var(--accent)',
         alternative: 'var(--alternative)',
+        'secondary': 'var(--secondary)',
         'blue-start': 'var(--blue-start)',
         'blue-end': 'var(--blue-end)',
         'blue-default': 'var(--blue-default)',
         'blue-light': 'var(--blue-light)',
         formal: 'var(--formal)',
+        'semi-blue-default': 'var(--semi-blue-default)',
       },
       spacing: {
         15: '3.75rem',
@@ -22,6 +24,12 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Space Grotesk', ...defaultTheme.fontFamily.sans],
+      },
+      maxWidth: {
+        'instruction-card': '21.875rem'
+      },
+      strokeWidth: {
+        3: '3px',
       },
       scale: {
         65: '0.65',

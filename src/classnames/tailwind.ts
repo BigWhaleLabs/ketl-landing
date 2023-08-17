@@ -278,11 +278,13 @@ export type TBackgroundColor =
   | 'bg-rose-900'
   | 'bg-accent'
   | 'bg-alternative'
+  | 'bg-secondary'
   | 'bg-blue-start'
   | 'bg-blue-end'
   | 'bg-blue-default'
   | 'bg-blue-light'
   | 'bg-formal'
+  | 'bg-semi-blue-default'
 
 export type TBackgroundPosition =
   | 'bg-bottom'
@@ -990,6 +992,9 @@ export type TGradientColorStops =
   | 'from-alternative'
   | 'via-alternative'
   | 'to-alternative'
+  | 'from-secondary'
+  | 'via-secondary'
+  | 'to-secondary'
   | 'from-blue-start'
   | 'via-blue-start'
   | 'to-blue-start'
@@ -1005,6 +1010,9 @@ export type TGradientColorStops =
   | 'from-formal'
   | 'via-formal'
   | 'to-formal'
+  | 'from-semi-blue-default'
+  | 'via-semi-blue-default'
+  | 'to-semi-blue-default'
 
 export type TBackgrounds =
   | TBackgroundAttachment
@@ -2617,6 +2625,11 @@ export type TBorderColor =
   | 'border-r-alternative'
   | 'border-b-alternative'
   | 'border-l-alternative'
+  | 'border-secondary'
+  | 'border-t-secondary'
+  | 'border-r-secondary'
+  | 'border-b-secondary'
+  | 'border-l-secondary'
   | 'border-blue-start'
   | 'border-t-blue-start'
   | 'border-r-blue-start'
@@ -2642,6 +2655,11 @@ export type TBorderColor =
   | 'border-r-formal'
   | 'border-b-formal'
   | 'border-l-formal'
+  | 'border-semi-blue-default'
+  | 'border-t-semi-blue-default'
+  | 'border-r-semi-blue-default'
+  | 'border-b-semi-blue-default'
+  | 'border-l-semi-blue-default'
 
 export type TBorderOpacity =
   | 'border-opacity-0'
@@ -3266,11 +3284,13 @@ export type TRingColor =
   | 'ring-rose-900'
   | 'ring-accent'
   | 'ring-alternative'
+  | 'ring-secondary'
   | 'ring-blue-start'
   | 'ring-blue-end'
   | 'ring-blue-default'
   | 'ring-blue-light'
   | 'ring-formal'
+  | 'ring-semi-blue-default'
 
 export type TRingWidth =
   | 'ring-0'
@@ -3527,11 +3547,13 @@ export type TRingOffsetColor =
   | 'ring-offset-rose-900'
   | 'ring-offset-accent'
   | 'ring-offset-alternative'
+  | 'ring-offset-secondary'
   | 'ring-offset-blue-start'
   | 'ring-offset-blue-end'
   | 'ring-offset-blue-default'
   | 'ring-offset-blue-light'
   | 'ring-offset-formal'
+  | 'ring-offset-semi-blue-default'
 
 export type TRingOffsetWidth =
   | 'ring-offset-0'
@@ -3782,11 +3804,13 @@ export type TOutlineColor =
   | 'outline-rose-900'
   | 'outline-accent'
   | 'outline-alternative'
+  | 'outline-secondary'
   | 'outline-blue-start'
   | 'outline-blue-end'
   | 'outline-blue-default'
   | 'outline-blue-light'
   | 'outline-formal'
+  | 'outline-semi-blue-default'
 
 export type TBorders =
   | TBorderStyle
@@ -4088,11 +4112,13 @@ export type TBoxShadowColor =
   | 'shadow-rose-900'
   | 'shadow-accent'
   | 'shadow-alternative'
+  | 'shadow-secondary'
   | 'shadow-blue-start'
   | 'shadow-blue-end'
   | 'shadow-blue-default'
   | 'shadow-blue-light'
   | 'shadow-formal'
+  | 'shadow-semi-blue-default'
 
 export type TOpacity =
   | 'opacity-0'
@@ -5720,11 +5746,13 @@ export type TCaretColor =
   | 'caret-rose-900'
   | 'caret-accent'
   | 'caret-alternative'
+  | 'caret-secondary'
   | 'caret-blue-start'
   | 'caret-blue-end'
   | 'caret-blue-default'
   | 'caret-blue-light'
   | 'caret-formal'
+  | 'caret-semi-blue-default'
 
 export type TWillChange =
   | 'will-change-auto'
@@ -5961,11 +5989,13 @@ export type TAccentColor =
   | 'accent-auto'
   | 'accent-accent'
   | 'accent-alternative'
+  | 'accent-secondary'
   | 'accent-blue-start'
   | 'accent-blue-end'
   | 'accent-blue-default'
   | 'accent-blue-light'
   | 'accent-formal'
+  | 'accent-semi-blue-default'
 
 export type TScrollPadding =
   | 'scroll-p-0'
@@ -7135,6 +7165,7 @@ export type TMaxWidth =
   | 'max-w-screen-lg'
   | 'max-w-screen-xl'
   | 'max-w-screen-2xl'
+  | 'max-w-instruction-card'
   | 'max-w-screen-fold'
   | 'max-w-screen-xs'
 
@@ -7292,11 +7323,13 @@ export type TFill =
   | 'fill-rose'
   | 'fill-accent'
   | 'fill-alternative'
+  | 'fill-secondary'
   | 'fill-blue-start'
   | 'fill-blue-end'
   | 'fill-blue-default'
   | 'fill-blue-light'
   | 'fill-formal'
+  | 'fill-semi-blue-default'
 
 export type TStroke =
   | 'stroke-inherit'
@@ -7328,13 +7361,15 @@ export type TStroke =
   | 'stroke-rose'
   | 'stroke-accent'
   | 'stroke-alternative'
+  | 'stroke-secondary'
   | 'stroke-blue-start'
   | 'stroke-blue-end'
   | 'stroke-blue-default'
   | 'stroke-blue-light'
   | 'stroke-formal'
+  | 'stroke-semi-blue-default'
 
-export type TStrokeWidth = 'stroke-0' | 'stroke-1' | 'stroke-2'
+export type TStrokeWidth = 'stroke-0' | 'stroke-1' | 'stroke-2' | 'stroke-3'
 
 export type TSVG = TFill | TStroke | TStrokeWidth
 
@@ -7854,11 +7889,13 @@ export type TPlaceholderColor =
   | 'placeholder-rose-900'
   | 'placeholder-accent'
   | 'placeholder-alternative'
+  | 'placeholder-secondary'
   | 'placeholder-blue-start'
   | 'placeholder-blue-end'
   | 'placeholder-blue-default'
   | 'placeholder-blue-light'
   | 'placeholder-formal'
+  | 'placeholder-semi-blue-default'
 
 export type TPlaceholderOpacity =
   | 'placeholder-opacity-0'
@@ -8105,11 +8142,13 @@ export type TTextColor =
   | 'text-rose-900'
   | 'text-accent'
   | 'text-alternative'
+  | 'text-secondary'
   | 'text-blue-start'
   | 'text-blue-end'
   | 'text-blue-default'
   | 'text-blue-light'
   | 'text-formal'
+  | 'text-semi-blue-default'
 
 export type TTextOpacity =
   | 'text-opacity-0'
@@ -8399,11 +8438,13 @@ export type TTextDecorationColor =
   | 'decoration-rose-900'
   | 'decoration-accent'
   | 'decoration-alternative'
+  | 'decoration-secondary'
   | 'decoration-blue-start'
   | 'decoration-blue-end'
   | 'decoration-blue-default'
   | 'decoration-blue-light'
   | 'decoration-formal'
+  | 'decoration-semi-blue-default'
 
 export type TTextDecorationThickness =
   | 'decoration-0'

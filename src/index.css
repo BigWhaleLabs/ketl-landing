@@ -8,12 +8,14 @@ html {
 
 :root {
   --accent: #8c29f1;
+  --secondary: #bffe8f;
   --blue-start: #3a00d6;
   --blue-end: #8355ff;
   --blue-default: #1a0259;
   --blue-light: #bff5fa;
   --alternative: #01feb6;
   --formal: #eff0f4;
+  --semi-blue-default: rgba(26, 2, 89, 0.20);
 }
 
 * {

@@ -1,4 +1,5 @@
 import { Redirect, Route, Router, Switch } from 'wouter-preact'
+import { ToastContainer } from 'react-toastify'
 import EmailScreen from 'components/screens/EmailScreen'
 import MainBlock from 'components/screens/MainScreen'
 import Root from 'components/Root'
@@ -24,6 +25,7 @@ export default function () {
           </Route>
         </Switch>
       </Root>
+      <ToastContainer position="bottom-right" theme="dark" />
     </Router>
   )
 }

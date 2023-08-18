@@ -1,12 +1,19 @@
 import { InstructionText } from 'components/Text'
+import { toast } from 'react-toastify'
 import { useCallback } from 'preact/hooks'
 import Button from 'components/Button'
 import TokenScreenParams from 'models/TokenScreenParams'
-import copy from 'copy-to-clipboard'
 
 export function InstructionCopyButton({ token }: TokenScreenParams) {
-  const onCopy = useCallback(() => {
-    if (token) copy(token)
+  const onCopy = useCallback(async () => {
+    if (!token) return
+    try {
+      await navigator.clipboard.writeText(token)
+      toast('Token copied 🎉')
+      console.log('Copied to clipboard')
+    } catch (e) {
+      console.error('Failed to copy to clipboard', e)
+    }
   }, [token])
 
   return (

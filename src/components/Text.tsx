@@ -1,13 +1,10 @@
 import {
   TTextColor,
   classnames,
-  cursor,
   fontSize,
   fontWeight,
-  padding,
   textAlign,
   textColor,
-  wordBreak,
 } from 'classnames/tailwind'
 import ChildrenProp from 'models/ChildrenProp'
 

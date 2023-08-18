@@ -11,14 +11,14 @@ import classnames, {
 import columnCentered from 'helpers/columnCenteredStyle'
 
 const wrapper = classnames(
-  ...[columnCentered],
+  columnCentered,
   maxWidth('max-w-instruction-card'),
   borderRadius('rounded'),
   backgroundColor('bg-semi-blue-default'),
   padding('p-4'),
   gap('gap-y-4')
 )
-const topBlock = classnames(...[columnCentered], gap('gap-y-1'))
+const topBlock = classnames(columnCentered, gap('gap-y-1'))
 
 export default function ({
   body,

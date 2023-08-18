@@ -7,7 +7,6 @@ import TokenScreenParams from 'models/TokenScreenParams'
 import classnames, {
   alignItems,
   display,
-  flex,
   flexDirection,
   gap,
   justifyContent,
@@ -18,7 +17,6 @@ import openAppLink from 'helpers/openAppLink'
 
 const wrapper = classnames(
   display('flex'),
-  flex('flex-1'),
   flexDirection('flex-col'),
   justifyContent('justify-center'),
   alignItems('items-center'),

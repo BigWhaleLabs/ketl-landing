@@ -3,6 +3,7 @@ import { toast } from 'react-toastify'
 import { useCallback } from 'preact/hooks'
 import Button from 'components/Button'
 import TokenScreenParams from 'models/TokenScreenParams'
+import handleError from 'helpers/handleError'
 
 export function InstructionCopyButton({ token }: TokenScreenParams) {
   const onCopy = useCallback(async () => {
@@ -10,9 +11,8 @@ export function InstructionCopyButton({ token }: TokenScreenParams) {
     try {
       await navigator.clipboard.writeText(token)
       toast('Token copied 🎉')
-      console.log('Copied to clipboard')
     } catch (e) {
-      console.error('Failed to copy to clipboard', e)
+      handleError({ e, toastMessage: 'Failed to copy to clipboard' })
     }
   }, [token])
 

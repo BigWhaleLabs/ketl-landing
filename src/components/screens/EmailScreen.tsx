@@ -1,5 +1,6 @@
 import { CaptionText } from 'components/Text'
 import { isMobileDevice } from 'helpers/isMobileDevice'
+import { useCallback } from 'preact/hooks'
 import { useLocation } from 'wouter-preact'
 import AnonFace from 'icons/AnonFace'
 import Button from 'components/Button'
@@ -28,10 +29,21 @@ const wrapper = classnames(
   padding('px-4'),
   zIndex('z-20')
 )
-const caption = classnames(...[columnCentered], gap('gap-y-8'))
+const caption = classnames(columnCentered, gap('gap-y-8'))
 
 function OpenKetlBlock({ domain, token }: EmailScreenParams) {
   const [, navigate] = useLocation()
+  const onClick = useCallback(() => {
+    if (!domain || !token) return
+    isMobileDevice
+      ? openAppLink({
+          blank: true,
+          params: { domain, token },
+          path: KetlPath.email,
+        })
+      : navigate('/')
+  }, [domain, navigate, token])
+
   if (!domain || !token) return null
   const buttonText = `${isMobileDevice ? 'Open' : 'Get'} ketl`
   const captionText = isMobileDevice
@@ -41,18 +53,7 @@ function OpenKetlBlock({ domain, token }: EmailScreenParams) {
   return (
     <div className={caption}>
       <CaptionText>{captionText}</CaptionText>
-      <Button
-        title={buttonText}
-        onClick={() =>
-          isMobileDevice
-            ? openAppLink({
-                blank: true,
-                params: { domain, token },
-                path: KetlPath.email,
-              })
-            : navigate('/')
-        }
-      />
+      <Button title={buttonText} onClick={onClick} />
     </div>
   )
 }

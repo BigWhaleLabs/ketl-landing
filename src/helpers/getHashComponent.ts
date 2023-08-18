@@ -6,10 +6,6 @@ export default function () {
 
   const [path, anchor] = hash.split('#')
 
-  console.log('token', token)
-  console.log('path', path)
-  console.log('anchor', anchor)
-
   return {
     anchor,
     path,

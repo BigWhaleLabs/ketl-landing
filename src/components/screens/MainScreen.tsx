@@ -46,8 +46,8 @@ export default function () {
   const [, setLocation] = useLocation()
 
   useEffect(() => {
-    if (getHashComponent().token)
-      return setLocation(`/token/${getHashComponent().token}`)
+    const hashToken = getHashComponent().token
+    if (hashToken) return setLocation(`/token/${hashToken}`)
 
     const urlSearchParams = new URLSearchParams(window.location.search)
     if (urlSearchParams.has('token'))

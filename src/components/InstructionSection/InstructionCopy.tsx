@@ -10,9 +10,8 @@ export function InstructionCopyButton({ token }: TokenScreenParams) {
     try {
       await navigator.clipboard.writeText(token)
       toast('Token copied 🎉')
-      console.log('Copied to clipboard')
     } catch (e) {
-      console.error('Failed to copy to clipboard', e)
+      toast('Failed to copy to clipboard', { type: 'error' })
     }
   }, [token])
 

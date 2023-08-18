@@ -25,7 +25,7 @@ export default function () {
           </Route>
         </Switch>
       </Root>
-      <ToastContainer position="bottom-right" theme="dark" />
+      <ToastContainer limit={3} position="bottom-right" theme="light" />
     </Router>
   )
 }

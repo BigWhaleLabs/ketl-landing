@@ -18,6 +18,7 @@ import classnames, {
   width,
   zIndex,
 } from 'classnames/tailwind'
+import getHashComponent from 'helpers/getHashComponent'
 import openBlankTab from 'helpers/openBlankTab'
 
 const whatPeopleThinkWrapper = classnames(
@@ -45,10 +46,12 @@ export default function () {
   const [, setLocation] = useLocation()
 
   useEffect(() => {
-    const urlSearchParams = new URLSearchParams(window.location.search)
+    if (getHashComponent().token)
+      return setLocation(`/token/${getHashComponent().token}`)
 
+    const urlSearchParams = new URLSearchParams(window.location.search)
     if (urlSearchParams.has('token'))
-      setLocation(`/token/${urlSearchParams.get('token')}`)
+      window.location.replace('/#/?token=' + urlSearchParams.get('token'))
   }, [setLocation])
 
   return (

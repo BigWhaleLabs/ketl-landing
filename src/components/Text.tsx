@@ -56,12 +56,43 @@ export function BasicText({
   return <p className={basicTextStyles({ bold, color, small })}>{children}</p>
 }
 
-const captionText = classnames(
-  textColor('text-blue-light'),
-  textAlign('text-center'),
-  fontWeight('font-bold'),
-  fontSize('text-xl')
-)
-export function CaptionText({ children }: ChildrenProp) {
-  return <p className={captionText}>{children}</p>
+const captionText = (color: TTextColor) =>
+  classnames(
+    textColor(color),
+    textAlign('text-center'),
+    fontWeight('font-bold'),
+    fontSize('text-xl')
+  )
+export function CaptionText({
+  children,
+  color = 'text-blue-light',
+}: { color?: TTextColor } & ChildrenProp) {
+  return <p className={captionText(color)}>{children}</p>
+}
+
+interface InstructionTextProps {
+  primary?: boolean
+  small?: boolean
+  weight?: 'bold' | 'medium'
+}
+
+const instructionText = ({ primary, small, weight }: InstructionTextProps) =>
+  classnames(
+    textColor(primary ? 'text-blue-light' : 'text-secondary'),
+    fontWeight({
+      'font-bold': weight === 'bold',
+      'font-medium': weight === 'medium',
+    }),
+    fontSize({ 'text-sm': small }),
+    textAlign('text-center')
+  )
+export function InstructionText({
+  children,
+  primary,
+  small,
+  weight,
+}: InstructionTextProps & ChildrenProp) {
+  return (
+    <p className={instructionText({ primary, small, weight })}>{children}</p>
+  )
 }

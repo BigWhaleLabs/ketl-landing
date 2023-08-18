@@ -15,6 +15,7 @@ import classnames, {
   padding,
   zIndex,
 } from 'classnames/tailwind'
+import columnCentered from 'helpers/columnCenteredStyle'
 import openAppLink from 'helpers/openAppLink'
 
 const wrapper = classnames(
@@ -27,13 +28,7 @@ const wrapper = classnames(
   padding('px-4'),
   zIndex('z-20')
 )
-const caption = classnames(
-  display('flex'),
-  flexDirection('flex-col'),
-  justifyContent('justify-center'),
-  alignItems('items-center'),
-  gap('gap-y-8')
-)
+const caption = classnames(...[columnCentered], gap('gap-y-8'))
 
 function OpenKetlBlock({ domain, token }: EmailScreenParams) {
   const [, navigate] = useLocation()

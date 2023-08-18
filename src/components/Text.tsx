@@ -81,7 +81,7 @@ interface InstructionTextProps {
 
 const instructionText = ({ primary, small, weight }: InstructionTextProps) =>
   classnames(
-    primary ? textColor('text-blue-light') : textColor('text-secondary'),
+    textColor(primary ? 'text-blue-light' : 'text-secondary'),
     fontWeight({
       'font-bold': weight === 'bold',
       'font-medium': weight === 'medium',

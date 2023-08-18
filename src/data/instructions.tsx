@@ -2,11 +2,11 @@ import {
   InstructionCopyButton,
   InstructionCopyCaption,
 } from 'components/InstructionSection/InstructionCopy'
-import Instruction from 'models/Instruction'
 import InstructionDownloadButtons from 'components/InstructionSection/InstructionDownload'
 import InstructionLastStep from 'components/InstructionSection/InstructionLastStep'
+import TokenInstruction from 'models/Instruction'
 
-const instructions: Instruction[] = [
+const instructions: TokenInstruction[] = [
   {
     body: (token: string) => <InstructionCopyButton token={token} />,
     subtitle: () => <InstructionCopyCaption />,

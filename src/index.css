@@ -15,7 +15,7 @@ html {
   --blue-light: #bff5fa;
   --alternative: #01feb6;
   --formal: #eff0f4;
-  --semi-blue-default: rgba(26, 2, 89, 0.20);
+  --semi-blue-default: #1a025933;
 }
 
 * {

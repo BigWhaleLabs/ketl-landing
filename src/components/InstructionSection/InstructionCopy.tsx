@@ -30,7 +30,7 @@ export function InstructionCopyButton({ token }: TokenScreenParams) {
 export function InstructionCopyCaption() {
   return (
     <InstructionText primary small>
-      (You can always come back to this page to copy it again).
+      (You can always come back to this page to copy it again)
     </InstructionText>
   )
 }

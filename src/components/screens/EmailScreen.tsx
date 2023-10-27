@@ -59,7 +59,7 @@ function OpenKetlBlock({ domain, token }: EmailScreenParams) {
 }
 
 export default function EmailScreen({ domain, token }: EmailScreenParams) {
-  if (domain && token && isMobileDevice)
+  if (domain && token)
     openAppLink({ params: { domain, token }, path: KetlPath.email })
 
   return (

@@ -1,5 +1,4 @@
 import { CaptionText } from 'components/Text'
-import { isMobileDevice } from 'helpers/isMobileDevice'
 import Arrow from 'icons/Arrow'
 import InstructionSection from 'components/InstructionSection'
 import KetlPath from 'models/KetlPath'
@@ -26,7 +25,7 @@ const wrapper = classnames(
 )
 
 export default function TokenScreen({ token }: TokenScreenParams) {
-  if (isMobileDevice) openAppLink({ params: { token }, path: KetlPath.token })
+  openAppLink({ params: { token }, path: KetlPath.token })
 
   return (
     <div className={wrapper}>

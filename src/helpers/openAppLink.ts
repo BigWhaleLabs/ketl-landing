@@ -14,7 +14,6 @@ export default function ({
 
   const link = `ketl://${path}`
   const linkToOpen = params ? `${link}?${new URLSearchParams(params)}` : link
-  console.log(linkToOpen)
   if (blank) return window.open(linkToOpen, '_blank')
   return window.location.assign(linkToOpen)
 }

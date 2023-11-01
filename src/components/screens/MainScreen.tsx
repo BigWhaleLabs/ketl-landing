@@ -20,6 +20,7 @@ import classnames, {
 } from 'classnames/tailwind'
 import getHashComponent from 'helpers/getHashComponent'
 import openBlankTab from 'helpers/openBlankTab'
+import useUserAgent from 'hooks/useUserAgent'
 
 const whatPeopleThinkWrapper = classnames(
   scale('scale-50', 'xs:scale-65', 'md:scale-100'),
@@ -44,6 +45,7 @@ const bottomBlockWrapper = classnames(
 
 export default function () {
   const [, setLocation] = useLocation()
+  const platform = useUserAgent()
 
   useEffect(() => {
     const hashToken = getHashComponent().token
@@ -60,7 +62,10 @@ export default function () {
         <AppMotto />
       </div>
 
-      <StoreButtons showAndroid showIos />
+      <StoreButtons
+        showAndroid={platform !== 'ios'}
+        showIos={platform !== 'android'}
+      />
 
       <div className={whatPeopleThinkWrapper}>
         <WhatPeopleThink />

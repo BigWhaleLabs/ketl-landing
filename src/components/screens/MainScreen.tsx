@@ -13,7 +13,6 @@ import classnames, {
   gap,
   margin,
   padding,
-  scale,
   transitionProperty,
   width,
   zIndex,
@@ -23,8 +22,9 @@ import openBlankTab from 'helpers/openBlankTab'
 import useUserAgent from 'hooks/useUserAgent'
 
 const whatPeopleThinkWrapper = classnames(
-  scale('scale-50', 'xs:scale-65', 'md:scale-100'),
-  transitionProperty('transition-transform')
+  width('w-56', 'xs:w-72', 'md:w-96'),
+  transitionProperty('transition-transform'),
+  display('lg:hidden')
 )
 const elementsWidth = width('w-64', 'xs:w-80', 'md:w-104')
 const container = classnames(
@@ -32,7 +32,8 @@ const container = classnames(
   flexDirection('flex-col'),
   alignItems('items-center'),
   zIndex('z-20'),
-  padding('px-4')
+  padding('px-4'),
+  gap('gap-y-8')
 )
 
 const bottomBlockWrapper = classnames(
@@ -58,6 +59,10 @@ export default function () {
 
   return (
     <div className={container}>
+      <div className={whatPeopleThinkWrapper}>
+        <WhatPeopleThink />
+      </div>
+
       <div className={elementsWidth}>
         <AppMotto />
       </div>
@@ -66,10 +71,6 @@ export default function () {
         showAndroid={platform !== 'ios'}
         showIos={platform !== 'android'}
       />
-
-      <div className={whatPeopleThinkWrapper}>
-        <WhatPeopleThink />
-      </div>
 
       <div className={bottomBlockWrapper}>
         <BasicText color="text-blue-light">

@@ -9,13 +9,11 @@ import classnames, {
   flexDirection,
   gap,
   justifyContent,
-  margin,
 } from 'classnames/tailwind'
 import openBlankTab from 'helpers/openBlankTab'
 
 const downloadButtonsWrapper = (small?: boolean) =>
   classnames(
-    margin({ 'my-4': !small, 'xs:my-10': !small }),
     display('flex'),
     flexDirection({ 'flex-col': true, 'md:flex-row': !small }),
     gap({ 'gap-2': small, 'gap-4': !small }),

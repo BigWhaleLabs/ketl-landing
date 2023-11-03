@@ -46,7 +46,7 @@ const slide = classnames(
   justifyContent('justify-center'),
   scrollSnap('snap-start'),
   textAlign('text-center'),
-  fontSize('text-xl'),
+  fontSize('text-lg', 'md:text-xl'),
   textColor('text-white')
 )
 const indicatorContainer = classnames(
@@ -123,9 +123,9 @@ export default function MainCarousel() {
   }, [currentSlide])
 
   useEffect(() => {
-    const interval = setInterval(() => handleNextSlide(), slideDuration)
-    return () => clearInterval(interval)
-  }, [handleNextSlide])
+    const interval = setTimeout(() => handleNextSlide(), slideDuration)
+    return () => clearTimeout(interval)
+  }, [currentSlide, handleNextSlide])
 
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current

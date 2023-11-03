@@ -1,3 +1,4 @@
+import { isAndroid, isIos } from 'helpers/isMobileDevice'
 import { useEffect } from 'react'
 import { useLocation } from 'wouter-preact'
 import AppMotto from 'icons/AppMotto'
@@ -16,7 +17,6 @@ import classnames, {
   zIndex,
 } from 'classnames/tailwind'
 import getHashComponent from 'helpers/getHashComponent'
-import useUserAgent from 'hooks/useUserAgent'
 
 const whatPeopleThinkWrapper = classnames(
   width('w-56', 'xs:w-72', 'md:w-96'),
@@ -35,7 +35,6 @@ const container = classnames(
 
 export default function () {
   const [, setLocation] = useLocation()
-  const platform = useUserAgent()
 
   useEffect(() => {
     const hashToken = getHashComponent().token
@@ -56,10 +55,7 @@ export default function () {
         <AppMotto />
       </div>
 
-      <StoreButtons
-        showAndroid={platform !== 'ios'}
-        showIos={platform !== 'android'}
-      />
+      <StoreButtons showAndroid={!isIos} showIos={!isAndroid} />
 
       <GradientSeparator className={elementsWidth} />
       <MainCarousel />

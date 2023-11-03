@@ -56,10 +56,16 @@ const indicatorContainer = classnames(
   justifyContent('justify-center'),
   gap('gap-1')
 )
-const indicator = (isActive: boolean) =>
+const indicator = (isActive: boolean, isPrevOrNext: boolean) =>
   classnames(
-    width({ 'w-1.5': !isActive, 'w-2': isActive }),
-    height({ 'h-1.5': !isActive, 'h-2': isActive }),
+    width({
+      'w-1.5': !isActive && !isPrevOrNext,
+      'w-2': isActive || isPrevOrNext,
+    }),
+    height({
+      'h-1.5': !isActive && !isPrevOrNext,
+      'h-2': isActive || isPrevOrNext,
+    }),
     backgroundColor({ 'bg-blue-light': !isActive, 'bg-secondary': isActive }),
     borderRadius('rounded-full'),
     opacity({ 'opacity-50': !isActive })
@@ -67,11 +73,12 @@ const indicator = (isActive: boolean) =>
 const indicatorButton = classnames(margin('mx-2'))
 
 const messages = [
-  '🤫 Most used anon app for YC founders',
-  '🦄 #1 to speak anon to unicorn YC founders',
-  '✅ Over 400 verified yc founders, VC-back founders, and VCs',
-  '🌶 #1 app for spicy anon gossip for founders and VCs',
-  '😎 Best anon app for elite founders and VCs in their field',
+  '🤫 Most used anon app for YC alums',
+  '🔮 Get no BS thoughts and diligence on founders, VCs, or startups',
+  '🐳 Chat anon with 1B+ AUM and other elite VCs',
+  '🧠 #1 app to give and get unfiltered advice',
+  '✅ Used by 400 of the top founders and VCs daily',
+  '📈 Stay in the know for industry alpha',
 ]
 const slideDuration = 2500
 
@@ -139,7 +146,13 @@ export default function MainCarousel() {
           <ChevronLeft />
         </button>
         {messages.map((_, i) => (
-          <div className={indicator(i === currentSlide)} key={i}></div>
+          <div
+            key={i}
+            className={indicator(
+              i === currentSlide,
+              i === prevSlide || i === nextSlide
+            )}
+          ></div>
         ))}
         <button className={indicatorButton} onClick={handleNextSlide}>
           <ChevronRight />

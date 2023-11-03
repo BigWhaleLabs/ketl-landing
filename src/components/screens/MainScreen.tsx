@@ -12,7 +12,6 @@ import classnames, {
   flexDirection,
   gap,
   padding,
-  transitionProperty,
   width,
   zIndex,
 } from 'classnames/tailwind'
@@ -20,7 +19,6 @@ import getHashComponent from 'helpers/getHashComponent'
 
 const whatPeopleThinkWrapper = classnames(
   width('w-56', 'xs:w-72', 'md:w-96'),
-  transitionProperty('transition-transform'),
   display('lg:hidden')
 )
 const elementsWidth = width('w-64', 'xs:w-80', 'md:w-104')

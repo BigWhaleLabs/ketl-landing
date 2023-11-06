@@ -36,7 +36,7 @@ const container = classnames(
   width('w-64', 'xs:w-80', 'md:w-104'),
   height('h-20'),
   display('inline-flex'),
-  overflow('overflow-scroll'),
+  overflow('overflow-x-scroll', 'overflow-y-hidden'),
   scrollSnap('snap-x', 'snap-mandatory')
 )
 const slide = classnames(
@@ -82,6 +82,7 @@ const messages = [
   '📈 Stay in the know for industry alpha',
 ]
 const slideDuration = 2500
+const supportsScrollEnd = 'onscrollend' in window
 
 export default function MainCarousel() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
@@ -110,7 +111,7 @@ export default function MainCarousel() {
       if (e.target.scrollLeft === 0) setCurrentSlide(prevSlide)
       if (
         scrollContainerRef.current?.offsetWidth &&
-        e.target.scrollLeft > scrollContainerRef.current?.offsetWidth
+        e.target.scrollLeft === scrollContainerRef.current?.offsetWidth * 2
       )
         setCurrentSlide(nextSlide)
     },
@@ -124,15 +125,21 @@ export default function MainCarousel() {
   }, [currentSlide])
 
   useEffect(() => {
-    const interval = setTimeout(() => handleNextSlide(), slideDuration)
+    const interval = setTimeout(handleNextSlide, slideDuration)
     return () => clearTimeout(interval)
   }, [currentSlide, handleNextSlide])
 
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current
-    scrollContainer?.addEventListener('scrollend', handleScrollEnd)
+    scrollContainer?.addEventListener(
+      supportsScrollEnd ? 'scrollend' : 'scroll',
+      handleScrollEnd
+    )
     return () =>
-      scrollContainer?.removeEventListener('scrollend', handleScrollEnd)
+      scrollContainer?.removeEventListener(
+        supportsScrollEnd ? 'scrollend' : 'scroll',
+        handleScrollEnd
+      )
   }, [handleScrollEnd])
 
   return (

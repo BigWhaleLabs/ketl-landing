@@ -3,6 +3,7 @@ import { useLocation } from 'wouter-preact'
 import AnimatedLogo from 'components/AnimatedLogo'
 import Discord from 'icons/Discord'
 import Twitter from 'icons/Twitter'
+import WhatPeopleThink from 'icons/WhatPeopleThink'
 import classnames, {
   alignItems,
   cursor,
@@ -46,6 +47,7 @@ const rightBlock = classnames(
   height('h-16'),
   userSelect('select-none')
 )
+const centerBlock = classnames(width('w-96'), display('lg:flex', 'hidden'))
 const linkHover = textColor('hover:text-formal', 'text-blue-light')
 
 export default function () {
@@ -60,6 +62,9 @@ export default function () {
       >
         <AnimatedLogo />
       </a>
+      <div className={centerBlock}>
+        <WhatPeopleThink />
+      </div>
       <div className={rightBlock}>
         <a className={linkHover} href={ketlDiscordLink} target="_blank">
           <Discord />

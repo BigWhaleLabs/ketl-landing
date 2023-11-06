@@ -2,9 +2,7 @@ export default function () {
   return (
     <svg
       className="floating-letters"
-      height="41"
       viewBox="0 0 412 41"
-      width="412"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g opacity="0.75">

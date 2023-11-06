@@ -119,9 +119,10 @@ export default function MainCarousel() {
   )
 
   useLayoutEffect(() => {
-    scrollContainerRef.current?.scrollTo({
-      left: scrollContainerRef.current?.offsetWidth,
-    })
+    if (scrollContainerRef?.current) {
+      scrollContainerRef.current.scrollLeft =
+        scrollContainerRef.current.offsetWidth
+    }
   }, [currentSlide])
 
   useEffect(() => {

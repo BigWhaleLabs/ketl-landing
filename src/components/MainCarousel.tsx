@@ -34,6 +34,7 @@ const wrapper = classnames(
 )
 const container = classnames(
   width('w-64', 'xs:w-80', 'md:w-104'),
+  height('h-20'),
   display('inline-flex'),
   overflow('overflow-scroll'),
   scrollSnap('snap-x', 'snap-mandatory')

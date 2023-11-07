@@ -2,6 +2,7 @@ import { Route, Router, Switch } from 'wouter-preact'
 import { ToastContainer } from 'react-toastify'
 import EmailScreen from 'components/screens/EmailScreen'
 import MainBlock from 'components/screens/MainScreen'
+import PostViewScreen from 'components/screens/PostViewScreen'
 import Root from 'components/Root'
 import TokenScreen from 'components/screens/TokenScreen'
 import WaitlistScreen from 'components/screens/WaitlistScreen'
@@ -15,6 +16,10 @@ export default function () {
           <Route
             component={({ params }) => <EmailScreen {...params} />}
             path="/email/:domain/:token"
+          />
+          <Route
+            component={({ params }) => <PostViewScreen {...params} />}
+            path="/post/:feedId/:postId"
           />
           <Route
             component={({ params }) => <TokenScreen {...params} />}

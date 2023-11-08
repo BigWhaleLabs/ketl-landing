@@ -47,7 +47,11 @@ const rightBlock = classnames(
   height('h-16'),
   userSelect('select-none')
 )
-const centerBlock = classnames(width('w-96'), display('lg:flex', 'hidden'))
+const centerBlock = classnames(
+  width('w-96'),
+  height('h-full'),
+  display('lg:flex', 'hidden')
+)
 const linkHover = textColor('hover:text-formal', 'text-blue-light')
 
 export default function () {

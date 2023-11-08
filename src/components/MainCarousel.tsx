@@ -1,18 +1,14 @@
-import {
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react'
+import 'slick-carousel/slick/slick-theme.css'
+import 'slick-carousel/slick/slick.css'
+import { useRef, useState } from 'react'
 import ChevronLeft from 'icons/ChevronLeft'
 import ChevronRight from 'icons/ChevronRight'
+import Slider from 'react-slick'
 import classnames, {
   alignItems,
   backgroundColor,
   borderRadius,
   display,
-  flex,
   flexDirection,
   fontSize,
   gap,
@@ -20,8 +16,6 @@ import classnames, {
   justifyContent,
   margin,
   opacity,
-  overflow,
-  scrollSnap,
   textAlign,
   textColor,
   width,
@@ -34,18 +28,14 @@ const wrapper = classnames(
 )
 const container = classnames(
   width('w-64', 'xs:w-80', 'md:w-104'),
-  height('h-20'),
-  display('inline-flex'),
-  overflow('overflow-scroll'),
-  scrollSnap('snap-x', 'snap-mandatory')
+  height('h-20')
 )
 const slide = classnames(
   width('w-full'),
-  display('flex'),
-  flex('flex-none'),
+  height('h-20'),
+  display('!flex'),
   alignItems('items-center'),
   justifyContent('justify-center'),
-  scrollSnap('snap-start'),
   textAlign('text-center'),
   fontSize('text-lg', 'md:text-xl'),
   textColor('text-white')
@@ -57,16 +47,10 @@ const indicatorContainer = classnames(
   justifyContent('justify-center'),
   gap('gap-1')
 )
-const indicator = (isActive: boolean, isPrevOrNext: boolean) =>
+const indicator = (isActive: boolean) =>
   classnames(
-    width({
-      'w-1.5': !isActive && !isPrevOrNext,
-      'w-2': isActive || isPrevOrNext,
-    }),
-    height({
-      'h-1.5': !isActive && !isPrevOrNext,
-      'h-2': isActive || isPrevOrNext,
-    }),
+    width({ 'w-1.5': !isActive, 'w-2': isActive }),
+    height({ 'h-1.5': !isActive, 'h-2': isActive }),
     backgroundColor({ 'bg-blue-light': !isActive, 'bg-secondary': isActive }),
     borderRadius('rounded-full'),
     opacity({ 'opacity-50': !isActive })
@@ -84,78 +68,43 @@ const messages = [
 const slideDuration = 2500
 
 export default function MainCarousel() {
-  const scrollContainerRef = useRef<HTMLDivElement>(null)
-
-  const [currentSlide, setCurrentSlide] = useState<number>(0)
-  const prevSlide = currentSlide === 0 ? messages.length - 1 : currentSlide - 1
-  const nextSlide = (currentSlide + 1) % messages.length
-
-  const handleNextSlide = useCallback(() => {
-    scrollContainerRef.current?.scrollBy({
-      behavior: 'smooth',
-      left: scrollContainerRef.current?.offsetWidth,
-    })
-  }, [])
-
-  const handlePrevSlide = useCallback(() => {
-    scrollContainerRef.current?.scrollBy({
-      behavior: 'smooth',
-      left: -scrollContainerRef.current?.offsetWidth,
-    })
-  }, [])
-
-  const handleScrollEnd = useCallback(
-    (e: Event) => {
-      if (!(e.target instanceof HTMLElement)) return
-      if (e.target.scrollLeft === 0) setCurrentSlide(prevSlide)
-      if (
-        scrollContainerRef.current?.offsetWidth &&
-        e.target.scrollLeft > scrollContainerRef.current?.offsetWidth
-      )
-        setCurrentSlide(nextSlide)
-    },
-    [prevSlide, nextSlide]
-  )
-
-  useLayoutEffect(() => {
-    scrollContainerRef.current?.scrollTo({
-      left: scrollContainerRef.current?.offsetWidth,
-    })
-  }, [currentSlide])
-
-  useEffect(() => {
-    const interval = setTimeout(() => handleNextSlide(), slideDuration)
-    return () => clearTimeout(interval)
-  }, [currentSlide, handleNextSlide])
-
-  useEffect(() => {
-    const scrollContainer = scrollContainerRef.current
-    scrollContainer?.addEventListener('scrollend', handleScrollEnd)
-    return () =>
-      scrollContainer?.removeEventListener('scrollend', handleScrollEnd)
-  }, [handleScrollEnd])
+  const sliderRef = useRef<Slider>(null)
+  const [currentSlide, setCurrentSlide] = useState(0)
 
   return (
     <div className={wrapper}>
-      <div className={`${container} scrollbar-hide`} ref={scrollContainerRef}>
-        <div className={slide}>{messages[prevSlide]}</div>
-        <div className={slide}>{messages[currentSlide]}</div>
-        <div className={slide}>{messages[nextSlide]}</div>
+      <div className={container}>
+        <Slider
+          autoplay
+          infinite
+          afterChange={(index: number) => setCurrentSlide(index)}
+          arrows={false}
+          autoplaySpeed={slideDuration}
+          dots={false}
+          ref={sliderRef}
+          slidesToShow={1}
+        >
+          {messages.map((message) => (
+            <div className={slide} key={message}>
+              {message}
+            </div>
+          ))}
+        </Slider>
       </div>
       <div className={indicatorContainer}>
-        <button className={indicatorButton} onClick={handlePrevSlide}>
+        <button
+          className={indicatorButton}
+          onClick={() => sliderRef.current?.slickPrev()}
+        >
           <ChevronLeft />
         </button>
         {messages.map((_, i) => (
-          <div
-            key={i}
-            className={indicator(
-              i === currentSlide,
-              i === prevSlide || i === nextSlide
-            )}
-          ></div>
+          <div className={indicator(i === currentSlide)} key={i}></div>
         ))}
-        <button className={indicatorButton} onClick={handleNextSlide}>
+        <button
+          className={indicatorButton}
+          onClick={() => sliderRef.current?.slickNext()}
+        >
           <ChevronRight />
         </button>
       </div>

@@ -1,5 +1,7 @@
 export default interface WaitlistScreenParams {
   attestationType: string // AttestationType
-  context?: string // boolean
+  value: string // string || 'null'
+  context: string // 1 || 0
   verificationType: string // VerificationType
+  passed: string // 1 || 0
 }

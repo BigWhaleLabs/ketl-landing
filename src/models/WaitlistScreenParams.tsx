@@ -4,4 +4,5 @@ export default interface WaitlistScreenParams {
   context: string // 1 || 0
   verificationType: string // VerificationType
   passed: string // 1 || 0
+  inviteCode?: string
 }

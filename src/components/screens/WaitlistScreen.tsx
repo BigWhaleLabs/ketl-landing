@@ -6,12 +6,20 @@ import openAppLink from 'helpers/openAppLink'
 export default function ({
   attestationType,
   context,
+  inviteCode = '',
   passed,
   value,
   verificationType,
 }: WaitlistScreenParams) {
   openAppLink({
-    params: { attestationType, context, passed, value, verificationType },
+    params: {
+      attestationType,
+      context,
+      inviteCode,
+      passed,
+      value,
+      verificationType,
+    },
     path: KetlPath.waitlist,
   })
 

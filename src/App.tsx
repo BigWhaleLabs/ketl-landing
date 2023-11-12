@@ -22,7 +22,11 @@ export default function () {
           />
           <Route
             component={({ params }) => <WaitlistScreen {...params} />}
-            path="/waitlist/:verificationType/:attestationType/:value/:context/:passed/:inviteCode?"
+            path="/waitlist/:verificationType/:attestationType/:anonCode/:context"
+          />
+          <Route
+            component={({ params }) => <WaitlistScreen {...params} />}
+            path="/waitlistPassed/:id/:inviteCode?"
           />
           <Route component={MainBlock} />
         </Switch>

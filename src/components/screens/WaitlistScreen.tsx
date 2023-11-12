@@ -1,26 +1,18 @@
 import KetlPath from 'models/KetlPath'
 import MainScreen from 'components/screens/MainScreen'
-import WaitlistScreenParams from 'models/WaitlistScreenParams'
+import WaitlistScreenParams, {
+  WaitlistPassedScreenParams,
+} from 'models/WaitlistScreenParams'
 import openAppLink from 'helpers/openAppLink'
 
-export default function ({
-  attestationType,
-  context,
-  inviteCode = '',
-  passed,
-  value,
-  verificationType,
-}: WaitlistScreenParams) {
+type WaitlistParams = WaitlistScreenParams | WaitlistPassedScreenParams
+
+export default function (params: WaitlistParams) {
+  const passed = !('anonCode' in params)
+
   openAppLink({
-    params: {
-      attestationType,
-      context,
-      inviteCode,
-      passed,
-      value,
-      verificationType,
-    },
-    path: KetlPath.waitlist,
+    params: { ...params },
+    path: passed ? KetlPath.waitlistPassed : KetlPath.waitlist,
   })
 
   return <MainScreen />

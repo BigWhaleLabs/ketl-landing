@@ -1,5 +1,9 @@
 export default interface WaitlistScreenParams {
-  attestationType: string // AttestationType
-  context?: string // boolean
-  verificationType: string // VerificationType
+  anonCode: string // string || 'null'
+  context: string // 1 || 0
+}
+
+export interface WaitlistPassedScreenParams {
+  id: string // string || 'null'
+  inviteCode?: string // string || 'null'
 }

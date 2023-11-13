@@ -22,7 +22,7 @@ export default function () {
           />
           <Route
             component={({ params }) => <WaitlistScreen {...params} />}
-            path="/waitlist/:verificationType/:anonCode/:context"
+            path="/waitlist/:anonCode/:context"
           />
           <Route
             component={({ params }) => <WaitlistScreen {...params} />}

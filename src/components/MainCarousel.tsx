@@ -62,7 +62,7 @@ const messages = [
   '🔮 Get no BS thoughts and diligence on founders, VCs, or startups',
   '🐳 Chat anon with 1B+ AUM and other elite VCs',
   '🧠 #1 app to give and get unfiltered advice',
-  '✅ Used by 400 of the top founders and VCs daily',
+  '✅ Used by 500 of the top founders and VCs daily',
   '📈 Stay in the know for industry alpha',
 ]
 const slideDuration = 2500

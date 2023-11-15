@@ -8,7 +8,7 @@ module.exports = {
       colors: {
         accent: 'var(--accent)',
         alternative: 'var(--alternative)',
-        'secondary': 'var(--secondary)',
+        secondary: 'var(--secondary)',
         'blue-start': 'var(--blue-start)',
         'blue-end': 'var(--blue-end)',
         'blue-default': 'var(--blue-default)',
@@ -26,7 +26,7 @@ module.exports = {
         sans: ['Space Grotesk', ...defaultTheme.fontFamily.sans],
       },
       maxWidth: {
-        'instruction-card': '21.875rem'
+        'instruction-card': '21.875rem',
       },
       strokeWidth: {
         3: '3px',
@@ -37,6 +37,7 @@ module.exports = {
       screens: {
         fold: '281px',
         xs: '341px',
+        s: '400px',
       },
       dropShadow: {
         'blue-light': '0rem 0.188rem 2.75rem var(--blue-light)',

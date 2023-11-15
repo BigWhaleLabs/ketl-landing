@@ -12,6 +12,7 @@ import BackgroundVideo from 'components/BackgroundVideo'
 import ChildrenProp from 'models/ChildrenProp'
 import Footer from 'components/Footer'
 import Header from 'components/Header'
+import ProductHunt from 'components/ProductHunt'
 
 const root = classnames(
   display('flex'),
@@ -27,6 +28,7 @@ export default function ({ children }: ChildrenProp) {
   return (
     <div className={root}>
       <BackgroundVideo />
+      <ProductHunt />
       <Header />
       {children}
       <Footer />

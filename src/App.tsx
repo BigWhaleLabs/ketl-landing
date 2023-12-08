@@ -16,6 +16,7 @@ export default function () {
             component={({ params }) => <EmailScreen {...params} />}
             path="/email/:domain/:token"
           />
+          <Route component={() => <EmailScreen />} path="/delete-account" />
           <Route
             component={({ params }) => <TokenScreen {...params} />}
             path="/token/:token"
